@@ -29,3 +29,28 @@ create database finance ;
 
 create database music ;
 ```
+
+### Creating a New Table
+
+```
+create database land ;
+
+use land ;
+
+create table continent  
+(
+    continent_id        int,
+    continent_name      varchar(20),
+    population          bigint
+);
+```
+
+#### Constraints
+
+##### Primary Keys
+
+```
+
+```
+
+Listing 2-1. Creating a primary key

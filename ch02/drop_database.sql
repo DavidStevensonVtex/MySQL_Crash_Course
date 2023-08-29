@@ -4,4 +4,4 @@ drop database finance ;
 
 drop database music ;
 
-show databases ;
+-- show databases ;
