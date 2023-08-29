@@ -61,3 +61,14 @@ create table customer
 ```
 
 Listing 2-1. Creating a primary key
+
+```
+create table high_temperature
+(
+    city                varchar(50),
+    year                int,
+    high_temperature    int,
+    primary key ( city, year )
+) ;
+```
+Listing 2-2. Creating multiple primary key columns
