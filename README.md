@@ -341,3 +341,26 @@ create table country_code
     country_code    char(3)
 );
 ```
+
+#### varchar data type
+
+The varchar data tpe is for _variable-length_ strings, or strings that can hold _up to_ a
+specified number of characters.
+
+The number of characters that varchar can accept depends on your MySQL configuration.
+
+```
+create table interesting_people
+(
+    interesting_name    varchar(100)
+);
+```
+
+```
+create table test_varchar_size
+(
+    huge_column varchar(999999999)
+);
+
+Error Code: 1074. Column length too big for column 'huge_column' (max = 16383); use BLOB or TEXT instead
+```
