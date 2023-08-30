@@ -310,3 +310,17 @@ select *
 from unemployed 
 where unemployed is not null ;
 ```
+
+## Chapter 4: MySQL Data Types
+
+### Decimal and Date Data Types
+
+```
+create table solar_eclipse
+(
+	eclipse_date				date,
+	time_of_greatest_eclipse	time,
+	eclipse_type				varchar(10),
+	magnitude					numeric(4,3)
+);
+```
