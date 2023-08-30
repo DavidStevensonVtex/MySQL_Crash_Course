@@ -474,3 +474,35 @@ create table signature
 #### bit data type
 
 You can specify how many bits you want to store, up to a maximum of 64. 
+
+### Numeric Data Types
+
+#### tinyint, smallint, mediumint, int, and bigint
+
+<pre>
+tinyint     Stores integer values that range from -128 to 127, or 1 byte of storage
+smallint    Stores integer values ranging from -32,768 to 32,767, or 2 bytes of storage
+mediumint   Stores integer values ranging from -8,388,608 to 8,388,607, or 3 bytes of storage
+int         Stores integer values ranging from -2,147,483,648 to 2,147,483,647, or 4 byte of storage
+bigint      Stores integer values that range from -9,223,372,036,854,775,808 to 9,223,372,036,854,775,807, or 8 bytes of storage
+</pre>
+
+```
+create table planet_stat 
+(
+	planet            varchar(20),
+	miles_from_earth  bigint,
+	diameter_km       mediumint
+);
+```
+
+One technique you can use for space efficiency is defining integer data types as unsigned.
+
+```
+create table planet_stat 
+(
+	planet            varchar(20),
+	miles_from_earth  bigint,
+	diameter_km       mediumint
+);
+```
