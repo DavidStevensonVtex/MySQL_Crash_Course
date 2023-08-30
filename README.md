@@ -433,3 +433,28 @@ __Other escape sequences__
 \t  Tab
 \\  Backslash
 </pre>
+
+### Binary Data Types
+
+#### tinyblob, blob, mediumblob, and longblob
+
+<pre>
+tinyblob    Stores up to 255 bytes
+text        Stores up to 65,535 bytes, approximately 64KB
+mediumblob Stores up to 16,777,215 bytes, approximately 16MB
+longblob    Stores up to 4,294,967,295 bytes, approximately 4GB
+</pre>
+
+#### binary data type
+
+The binary data type is for fixed-length binary data. It's very similar to the
+char data type, except that it's used for strings of binary data rather than 
+character strings.
+
+```
+create table encryption
+    (
+    key_id          int,
+    encryption_key  binary(50)
+    );
+```
