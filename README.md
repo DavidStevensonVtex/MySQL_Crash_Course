@@ -273,3 +273,14 @@ CREATE TABLE dog (
         REFERENCES veterinarian (veterinarian_id)
 );
 ```
+
+#### Backticks
+
+```
+SELECT 
+    `continent_id`, `continent_name`, `population`
+FROM
+    continent;
+```
+
+Backticks allow you to get around some of MySQL's rules for naming tables and columns.
