@@ -140,3 +140,18 @@ create table job
     primary key(job_id)
 );
 ```
+
+#### Indexes
+
+```
+create table product
+(
+    product_id      int,
+    product_name    varchar(100),
+    supplier_id     int
+);
+```
+
+```
+create index product_supplier_index on product(supplier_id) ;
+```
