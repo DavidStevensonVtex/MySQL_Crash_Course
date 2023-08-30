@@ -188,3 +188,12 @@ alter table customer drop column address ;
 alter table customer rename column zip to zip_code ;
 alter table customer rename to valued_customer ;
 ```
+
+## Chapter 3: Introduction to SQL
+
+### Querying Data from a Table
+
+```
+select continent_id, continent_name, population
+from continent ;
+```
