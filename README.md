@@ -540,3 +540,14 @@ The float data type stores numeric data witha floating-point decimal.
 #### double data type
 
 The _double_ data type, is short for double precision.
+
+
+### Date and Time Data Types
+
+<pre>
+date        YYYY-MM-DD (year, month, day)
+time        hh:mm:ss format, hours, minutes, seconds
+datetime    Stores both date and time, years 1000 to 9999
+timestamp   Stores the current date and time, Years between 1970 and 2038.
+year        Stores the year in the YYYY format.
+</pre>
