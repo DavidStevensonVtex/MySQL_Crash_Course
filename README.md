@@ -100,3 +100,9 @@ create table contact
     primary key (contact_id)
 );
 ```
+
+##### unique constraints
+
+```
+
+```
