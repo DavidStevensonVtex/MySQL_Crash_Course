@@ -243,3 +243,33 @@ SELECT
 FROM
     continent;
 ```
+
+#### Uppercase Keywords
+
+Some developers use uppercase for MySQL keywords.
+
+```
+SELECT 
+    continent_id, continent_name, population
+FROM
+    continent;
+```
+
+How MySQL Workbench beutifies this SQL
+
+```
+CREATE TABLE dog (
+    dog_id INT,
+    dog_name VARCHAR(50),
+    owner_id INT,
+    breed_id INT,
+    veterinarian_id INT,
+    PRIMARY KEY (dog_id),
+    FOREIGN KEY (owner_id)
+        REFERENCES owner (owner_id),
+    FOREIGN KEY (breed_id)
+        REFERENCES breed (breed_id),
+    FOREIGN KEY (veterinarian_id)
+        REFERENCES veterinarian (veterinarian_id)
+);
+```
