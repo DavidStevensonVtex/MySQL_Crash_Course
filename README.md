@@ -284,3 +284,8 @@ FROM
 ```
 
 Backticks allow you to get around some of MySQL's rules for naming tables and columns.
+
+#### Code Comments
+
+To add single-line comments, use two hypens followed by a space (-- ). This syntax
+tells MySQL that the rest of the line is a comment.
