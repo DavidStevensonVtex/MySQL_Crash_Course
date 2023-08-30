@@ -364,3 +364,14 @@ create table test_varchar_size
 
 Error Code: 1074. Column length too big for column 'huge_column' (max = 16383); use BLOB or TEXT instead
 ```
+
+#### enum data type
+
+```
+create table student
+	(
+	student_id     int,
+	student_class  enum('Freshman','Sophomore','Junior','Senior')
+	);
+
+```
