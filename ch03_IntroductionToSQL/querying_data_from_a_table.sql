@@ -1,2 +1,3 @@
 select continent_id, continent_name, population
-from continent ;
+from continent 
+where continent_name = 'Asia' ;
