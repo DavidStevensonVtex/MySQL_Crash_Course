@@ -506,3 +506,18 @@ create table planet_stat
 	diameter_km       mediumint
 );
 ```
+
+### Boolean Data Type
+
+Boolean values have only two states: true or false, on or off; 1 or 0.
+
+```
+create table food
+(
+    food              varchar(30),
+    organic_flag      bool,
+    gluten_free_flag  bool
+);
+```
+
+It's common practice to add the suffix _flag to columns that contain boolean values, such as organic_flag.
