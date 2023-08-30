@@ -551,3 +551,7 @@ datetime    Stores both date and time, years 1000 to 9999
 timestamp   Stores the current date and time, Years between 1970 and 2038.
 year        Stores the year in the YYYY format.
 </pre>
+
+### The json Data Type
+
+_JavaScript Object Notation (JSON)_
