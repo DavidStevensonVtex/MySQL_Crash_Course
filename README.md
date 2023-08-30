@@ -203,3 +203,16 @@ select continent_id, continent_name, population
 from continent 
 where continent_name = 'Asia' ;
 ```
+
+```
+select population
+from continent 
+where continent_name = 'Asia' ;
+```
+
+### Using the Wildcard Character
+
+```
+select *
+from continent ;
+```
