@@ -406,3 +406,30 @@ create table book
     entire_book        mediumtext
     );
 ```
+
+#### String Formatting
+
+String values must be surrounded by single quotes or double quotes.
+
+```
+select *
+from store
+where store_name = "Bill's Supply" ;
+```
+
+```
+select *
+from store
+where store_name = 'Bill\'s Supply' ;
+```
+
+__Other escape sequences__
+
+<pre>
+
+\"  Double quote
+\n  Newline (linefeed)
+\r  Carriage return
+\t  Tab
+\\  Backslash
+</pre>
