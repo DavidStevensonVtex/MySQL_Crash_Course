@@ -555,3 +555,18 @@ year        Stores the year in the YYYY format.
 ### The json Data Type
 
 _JavaScript Object Notation (JSON)_
+
+### Spatial Data Types
+
+Spatial data types represent geographical location data, also known as _geodata_.
+
+Spatial data types include:
+
+* geometry
+* point
+* linestring
+* polygon
+* multipoint
+* multilinestring
+* emultipolygon
+* geometrycollection
