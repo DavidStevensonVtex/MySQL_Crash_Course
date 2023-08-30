@@ -387,3 +387,22 @@ create table interpreter
     language_spoken    set('English','German','French','Spanish')
     );
 ```
+
+#### tinytext, text, mediumtext, and longtext data types
+
+<pre>
+tinytext    Stores up to 255 characters
+text        Stores up to 65,535 characters, approximately 64KB
+mediumtext  Stores up to 16,777,215 characters, approximately 16MB
+longtext    Stores up to 4,294,967,295 characters, approximately 4GB
+</pre>
+
+```
+create table book
+    (
+    book_id            int,
+    author_bio         tinytext,
+    book_proposal      text,
+    entire_book        mediumtext
+    );
+```
