@@ -324,3 +324,20 @@ create table solar_eclipse
 	magnitude					numeric(4,3)
 );
 ```
+
+### String Data Types
+
+#### char data type
+
+The char data type is used for fixed-length strings.
+
+The char data type defaults to one character if you leave out the parentheses.
+
+You can define a char data type with up to 255 characters.
+
+```
+create table country_code
+(
+    country_code    char(3)
+);
+```
