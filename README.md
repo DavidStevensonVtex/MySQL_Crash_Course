@@ -289,3 +289,5 @@ Backticks allow you to get around some of MySQL's rules for naming tables and co
 
 To add single-line comments, use two hypens followed by a space (-- ). This syntax
 tells MySQL that the rest of the line is a comment.
+
+To add multiline comments, use /* at the beginning of the comment and */ at the end.
