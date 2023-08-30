@@ -232,3 +232,14 @@ select continent_id, continent_name, population
 from continent
 order by population desc ;
 ```
+
+### Formatting SQL Code
+
+How MySQL Workbench beautifies SQL
+
+```
+SELECT 
+    continent_id, continent_name, population
+FROM
+    continent;
+```
