@@ -291,3 +291,22 @@ To add single-line comments, use two hypens followed by a space (-- ). This synt
 tells MySQL that the rest of the line is a comment.
 
 To add multiline comments, use /* at the beginning of the comment and */ at the end.
+
+### Null Values
+
+```
+select *
+from unemployed ;
+```
+
+```
+select *
+from unemployed 
+where unemployed is null ;
+```
+
+```
+select *
+from unemployed 
+where unemployed is not null ;
+```
