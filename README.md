@@ -470,3 +470,7 @@ create table signature
     signature       varbinary(400)
     );
 ```
+
+#### bit data type
+
+You can specify how many bits you want to store, up to a maximum of 64. 
