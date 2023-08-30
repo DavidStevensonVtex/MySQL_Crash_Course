@@ -155,3 +155,6 @@ create table product
 ```
 create index product_supplier_index on product(supplier_id) ;
 ```
+
+You don't need to create indexes for columns that have been defined as primary keys, as foreign keys,
+or with unique constraints, because MySQL automatically indexes those columns.
