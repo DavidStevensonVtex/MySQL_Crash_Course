@@ -458,3 +458,15 @@ create table encryption
     encryption_key  binary(50)
     );
 ```
+
+#### varbinary data type
+
+The varbinary data type is for variable-length binary data. You specify the maximum size.
+
+```
+create table signature
+    (
+    signature_id    int,
+    signature       varbinary(400)
+    );
+```
