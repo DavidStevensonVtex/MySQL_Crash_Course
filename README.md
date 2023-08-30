@@ -216,3 +216,11 @@ where continent_name = 'Asia' ;
 select *
 from continent ;
 ```
+
+### Ordering Rows
+
+```
+select continent_id, continent_name, population
+from continent
+order by continent_name ;
+```
