@@ -521,3 +521,22 @@ create table food
 ```
 
 It's common practice to add the suffix _flag to columns that contain boolean values, such as organic_flag.
+
+### Decimal Data Types
+
+MySQL provides the decimal, float and double data types.
+
+#### decimal data type
+
+_Precision_ is the total number of digits that you can store, and _scale_ is the number of digits
+after the decimal point. Example: decimal(5,2)
+
+The synonyms for decimal are numeric, dec, and fixed. All of these are equivalent.
+
+#### float data type
+
+The float data type stores numeric data witha floating-point decimal.
+
+#### double data type
+
+The _double_ data type, is short for double precision.
