@@ -224,3 +224,11 @@ select continent_id, continent_name, population
 from continent
 order by continent_name ;
 ```
+
+__Ordering columns with integer types__
+
+```
+select continent_id, continent_name, population
+from continent
+order by population desc ;
+```
