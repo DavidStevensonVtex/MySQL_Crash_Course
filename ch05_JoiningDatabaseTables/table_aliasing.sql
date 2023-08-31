@@ -1,6 +1,6 @@
 use subway ;
 
--- Inner Join
+-- Inner Join with Table Aliasing
 select s.subway_system,
        s.city,
        c.country
