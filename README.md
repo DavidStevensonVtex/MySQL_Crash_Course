@@ -718,3 +718,32 @@ from subway.subway_system as s
     inner join location.country as c 
         on s.country_code = c.country_code ;
 ```
+
+# Chapter 6: Performing Complex Joins with Multiple Tables
+
+## Writing One Query with Two Join Types
+
+```
+use police ;
+
+select c.crime_name, l.location_name, s.suspect_name
+from crime c 
+    join location l 
+        on c.location_id = l.location_id 
+    left join suspect s
+        on c.suspect_id = s.suspect_id ;
+```
+
+__Crimes Where Suspect is not Known__
+
+```
+use police ;
+
+select c.crime_name, l.location_name, s.suspect_name
+from crime c 
+    join location l 
+        on c.location_id = l.location_id 
+    left join suspect s
+        on c.suspect_id = s.suspect_id
+where s.suspect_name is null ;
+```
