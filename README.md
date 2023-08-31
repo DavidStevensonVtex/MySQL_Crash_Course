@@ -796,3 +796,23 @@ from best_wine_contest
 order by place
 limit 3 ;
 ```
+
+### The union Keyword
+
+```
+select wine_type_name from wine_type
+union
+select wine_name from best_wine_contest ;
+```
+
+You can use _union_ only when every select statement has the same number of columns.
+
+The _union_ keyword will remove duplicate values from the result set.
+
+To see a list that includes duplicate values, use union all:
+
+```
+select wine_type_name from wine_type
+union all
+select wine_name from best_wine_contest ;
+```
