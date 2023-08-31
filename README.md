@@ -900,3 +900,17 @@ from country c
     join winery_portfolio_cte wp
         on v.viticultural_area_id = wp.viticultural_area_id ;
 ```
+
+## Recursive Common Table Expressions
+
+```
+with recursive borg_scale_cte as
+(
+    select  6 as current_count
+    union
+    select  current_count + 1
+    from    borg_scale_cte
+    where current_count < 20 
+)
+select * from borg_scale_cte ;
+```
