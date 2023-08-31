@@ -600,3 +600,34 @@ from   subway_system s
 inner join country c
 on     s.country_code = c.country_code;
 ```
+
+### Types of Joins
+
+#### Inner Joins
+
+The word inner is optional because this is the default join.
+
+#### Outer Joins
+
+```
+use subway ;
+
+-- Right Outer Join
+select s.subway_system,
+       s.city,
+       c.country
+from   subway_system s
+    right outer join country c
+        on     s.country_code = c.country_code;
+```
+
+The word _outer_ is optional; using left join and right join will produce the same
+results.
+
+```
+
+```
+
+#### Natural Join
+
+#### Cross Join
