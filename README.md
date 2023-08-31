@@ -816,3 +816,55 @@ select wine_type_name from wine_type
 union all
 select wine_name from best_wine_contest ;
 ```
+
+## Temporary Tables
+
+MySQL allows you to create temporary tables -- that is, a temporary result set that
+will exist only for your current session and then be automatically dropped.
+
+```
+use wine ;
+
+drop temporary table if exists  wp1;
+
+create temporary table wp1
+(
+    winery_name             varchar(100),
+    viticultural_area_id    int
+) ;
+
+insert into wp1 ( winery_name, viticultural_area_id )
+    select winery_name, viticultural_area_id
+    from winery ;
+```
+
+```
+use wine ;
+
+drop temporary table if exists  winery_portfolio ;
+
+create temporary table winery_portfolio 
+    select w.winery_name, w.viticultural_area_id 
+    from winery w 
+        join portfolio p 
+            on w.winery_id = p.winery_id 
+                and w.offering_tours_flag is true
+                and p.in_season_flag is true 
+        join wine_type t 
+            on p.wine_type_id = t.wine_type_id 
+                and t.wine_type_name = 'Merlot' ; 
+
+select * from winery_portfolio ;
+        
+```
+
+```
+select c.country_name, r.region_name, v.viticultural_area_name, w.winery_name
+from country c
+    join region r 
+        on c.country_id = r.country_id and c.country_name = 'USA' 
+    join viticultural_area v
+        on r.region_id = v.region_id 
+    join winery_portfolio w
+        on v.viticultural_area_id = w.viticultural_area_id ;
+```
