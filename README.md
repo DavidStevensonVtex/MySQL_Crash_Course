@@ -697,3 +697,24 @@ from subway_system as s
         on s.country_code = c.country_code 
 where c.country_code = 'FR' ;
 ```
+
+## Joining Tables in Different Databases
+
+```
+use subway ;
+
+select * from subway_system ;
+```
+
+Alternatively:
+
+```select * from subway.subway_system ;```
+
+Query using two different databases:
+
+```
+select s.subway_system, s.city, c.country
+from subway.subway_system as s 
+    inner join location.country as c 
+        on s.country_code = c.country_code ;
+```
