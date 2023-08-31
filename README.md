@@ -771,3 +771,8 @@ from country c
         on p.wine_type_id = t.wine_type_id 
             and t.wine_type_name = 'Merlot' ;
 ```
+
+## Associative Tables
+
+The _portfolio_ table represents _many-to-many relationships_ because one winery can produce many wine types, and one wine type can be produced in many wineries.
+

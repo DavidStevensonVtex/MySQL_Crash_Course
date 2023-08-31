@@ -1,3 +1,5 @@
+-- Listing 6-1: A query to list US wineries with in-season Merlot
+
 use wine ;
 
 select c.country_name, r.region_name, v.viticultural_area_name, w.winery_name 
