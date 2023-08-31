@@ -628,6 +628,17 @@ results.
 
 ```
 
-#### Natural Join
+#### Natural Joins
 
-#### Cross Join
+A natural join in MySQL automatically joins tables when they have a column with the same name.
+
+```
+use subway ;
+
+select *
+from subway_system s
+    natural join country c ;
+
+```
+
+#### Cross Joins
