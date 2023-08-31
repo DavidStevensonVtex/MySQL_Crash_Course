@@ -776,3 +776,23 @@ from country c
 
 The _portfolio_ table represents _many-to-many relationships_ because one winery can produce many wine types, and one wine type can be produced in many wineries.
 
+## Managing the Data in Your Result Set
+
+### The limit Keyword
+
+The _limit_ keyword lets you limit the number of rows displayed in your result set.
+
+```
+select *
+from best_wine_contest 
+order by place ;
+```
+
+If you want to see only the top three wines, use limit 3:
+
+```
+select *
+from best_wine_contest 
+order by place
+limit 3 ;
+```
