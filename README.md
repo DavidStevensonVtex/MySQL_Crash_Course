@@ -642,3 +642,15 @@ from subway_system s
 ```
 
 #### Cross Joins
+
+MySQ''s cross join syntax can be used to get the Cartesian product of two tables. 
+A _Cartesian product_ is a listing of every row in one table matched with every row 
+in a second table.
+
+```
+use restaurant ;
+
+select m.main_item, s.side_item
+from main_dish m
+    cross join side_dish s ;
+```
