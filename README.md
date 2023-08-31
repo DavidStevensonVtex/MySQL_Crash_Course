@@ -914,3 +914,18 @@ with recursive borg_scale_cte as
 )
 select * from borg_scale_cte ;
 ```
+
+## Derived Tables
+
+```
+select  wot.winery_name, t.wine_type_name
+from    portfolio p
+    join wine_type t
+        on p.wine_type_id = t.wine_type_id
+    join (
+        select *
+        from winery
+        where offering_tours_flag is true
+    ) wot
+        on p.winery_id = wot.winery_id ;
+```
