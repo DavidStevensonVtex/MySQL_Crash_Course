@@ -942,3 +942,15 @@ where country_id =
         where country_name = 'USA' 
     ) ;
 ```
+
+## Subqueries that return more than One Row
+
+```
+select region_name
+from region
+where country_id in
+    (
+        select country_id 
+        from country
+    ) ;
+```
