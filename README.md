@@ -669,3 +669,19 @@ from music_preference a
 where a.music_fan != b.music_fan
 order by a.music_fan ;
 ```
+
+## Variations on Join Syntax
+
+### Parentheses
+
+You can choose to use parentheses when joining on columns or leave them off.
+
+### Old-School Inner Joins
+
+```
+use subway ;
+
+select s.subway_system, s.city, c.country
+from subway_system as s, country as c
+where s.country_code = c.country_code ;
+```
