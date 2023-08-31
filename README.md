@@ -929,3 +929,16 @@ from    portfolio p
     ) wot
         on p.winery_id = wot.winery_id ;
 ```
+
+## Subqueries
+
+```
+select region_name
+from region
+where country_id =
+    (
+        select country_id 
+        from country
+        where country_name = 'USA' 
+    ) ;
+```
