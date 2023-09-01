@@ -1299,3 +1299,6 @@ Result: 3
 ```select round(pi(), 2);```
 
 Result: 3.14
+
+## Calling Functions from Different Parts of Your Query
+
