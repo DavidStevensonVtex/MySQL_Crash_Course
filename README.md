@@ -1268,3 +1268,8 @@ A function is a set of saved SQL statements that performs some task and returns 
 
 ```select pi();```
 
+## Passing Arguments to a Function
+
+```select upper('rofl');```
+
+```select datediff('2024-12-25', '2024-11-28');```
