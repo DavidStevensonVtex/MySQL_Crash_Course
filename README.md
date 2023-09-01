@@ -1134,5 +1134,14 @@ where   birthyear not between 1981 and 1996;
 There are two wildcard characters that can be used with like and not like operators: percent (%) or underscore (\_).
 
 ```
+-- Like
+select  * 
+from    billionaire
+where   last_name like 'M%';
+```
 
+```
+select  * 
+from    billionaire
+where   last_name like '%e%';
 ```
