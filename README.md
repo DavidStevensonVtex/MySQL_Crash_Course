@@ -1064,3 +1064,12 @@ select  *
 from    employee
 where   retirement_date is null;
 ```
+
+## is not null
+
+```
+-- Is not null
+select *
+from   employee
+where  retirement_date is not null;
+```
