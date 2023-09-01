@@ -1110,3 +1110,12 @@ where   wine_type_name not in
         from    cheap_wine
         );
 ```
+
+## between
+
+```
+-- Between
+select  *
+from    customer
+where   birthyear between 1981 and 1996;
+```
