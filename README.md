@@ -1524,3 +1524,31 @@ select substring('MySQL', 3);
 select substring('gumbo' from 1 for 3);
 -- gum
 ```
+
+### trim()
+
+```
+select trim(leading  '*' from '**instructions**') as column1,
+       trim(trailing '*' from '**instructions**') as column2,
+       trim(both     '*' from '**instructions**') as column3,
+       trim(         '*' from '**instructions**') as column4;
+```
+
+Result: instructions**, **instructions, instructions, instructions
+
+```
+select trim('   asteroid   ');
+```
+Result: 'asteroid' (quotes used to indicate absence of space characters, but are not included in the string)
+
+### ltrim()
+
+select ltrim('   asteroid   ');
+
+Result: 'asteroid   '
+
+### rtrim()
+
+select rtrim('   asteroid   ');
+
+Result: '   asteroid'
