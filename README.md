@@ -1441,3 +1441,36 @@ The following may work in other database systems, but not in MySQL.
 select  first_name +  ' ' + last_name
 from    phone_book;
 ```
+
+### format()
+
+```
+-- Switch back to the "land" database
+use land;
+
+select  population
+from    continent
+where   continent_name = 'Asia';
+```
+
+Result: 4641054775
+
+```
+select format(population, 0)
+from   continent;
+```
+
+4,641,054,775
+1,340,598,147
+747,636,026
+592,072,212
+430,759,766
+43,111,704
+0
+
+
+```
+select format(1234567.89, 5);
+```
+
+1,234,567.89000
