@@ -1150,3 +1150,8 @@ where   last_name like '%e%';
 
 ### The \_ Character
 
+```
+select  * 
+from    three_letter_term
+where   term like '_at';
+```
