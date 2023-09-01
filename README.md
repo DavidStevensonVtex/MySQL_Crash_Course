@@ -1302,3 +1302,10 @@ Result: 3.14
 
 ## Calling Functions from Different Parts of Your Query
 
+```
+select upper(movie_name),
+       round(star_rating)
+       from movie
+where  star_rating > 3
+    and    year(release_date) <= 2024;
+```
