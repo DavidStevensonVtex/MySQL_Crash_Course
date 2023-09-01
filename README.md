@@ -1047,3 +1047,11 @@ select *
 from   team_schedule
 where  game_time < '22:00';
 ```
+
+## Less Than or Equal To
+
+```
+select *
+from   team_schedule
+where  game_time <= '22:00';
+```
