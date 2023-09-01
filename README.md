@@ -969,3 +969,6 @@ where	salary =
 		where   b.department = e.department
     );
 ```
+
+# Chapter 7: Comparing Values
+
