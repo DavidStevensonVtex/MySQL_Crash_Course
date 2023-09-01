@@ -1508,3 +1508,19 @@ select  last_name
 from    taxpayer
 where   upper(last_name) = upper('Mccartney');
 ```
+
+### substring()
+
+```
+select substring('gumbo', 1, 3);
+-- gum
+
+select substring('gumbo', -3, 2);
+-- mb
+
+select substring('MySQL', 3);
+-- SQL
+
+select substring('gumbo' from 1 for 3);
+-- gum
+```
