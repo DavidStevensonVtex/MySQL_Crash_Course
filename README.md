@@ -1006,3 +1006,9 @@ where  country_id =
 );
 ```
 ## Not Equal
+
+Not equal is expressed by the <> or != symbols.
+
+```
+
+```
