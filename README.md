@@ -1474,3 +1474,37 @@ select format(1234567.89, 5);
 ```
 
 1,234,567.89000
+
+### left()
+
+```
+select  last_name,
+        left(last_name, 3)
+from    taxpayer;
+```
+### right()
+
+```
+select  right(soc_sec_no, 4)
+from    taxpayer;
+```
+
+### lower()
+
+```
+select  lower(last_name)
+from    taxpayer;
+```
+
+### upper()
+
+```
+select  upper(last_name)
+from    taxpayer;
+```
+
+```
+select  last_name 
+from    taxpayer
+where   upper(last_name) = upper('Mccartney');
+```
