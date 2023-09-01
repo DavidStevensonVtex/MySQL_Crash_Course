@@ -1229,3 +1229,33 @@ select * from bachelor where employed_flag != true;
 select * from bachelor where employed_flag = 0;
 select * from bachelor where employed_flag != 1;
 ```
+
+## or conditions
+
+```
+-- Using OR
+select  *
+from    applicant
+where   bachelors_degree_flag is true
+or      years_experience >= 2;
+```
+
+```
+-- This query returns unexpected results
+select  *
+from    applicant
+where   years_experience >= 2
+and     associates_degree_flag is true
+or      bachelors_degree_flag is true;
+```
+
+```
+-- Adding parentheses gives us the results we expected
+select  *
+from    applicant
+where   years_experience >= 2
+and     (
+        associates_degree_flag is true
+or      bachelors_degree_flag is true
+        );
+```
