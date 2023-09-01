@@ -1425,3 +1425,8 @@ select country,
 from   theme_park
 group by country, state;
 ```
+
+## String Functions
+
+### concat()
+
