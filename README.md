@@ -1345,3 +1345,37 @@ where    mile =
   from   train
 );
 ```
+
+### min()
+
+```
+-- Switch back to the "land" database
+use land;
+
+select min(population) 
+from   continent;
+```
+
+### sum()
+
+```
+select sum(population) 
+from   continent;
+```
+
+### avg()
+
+```
+select avg(population) 
+from   continent;
+```
+
+```
+select    *
+from      continent
+where     population <
+(
+  select  avg(population)
+  from    continent
+);
+```
