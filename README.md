@@ -1128,3 +1128,11 @@ select  *
 from    customer
 where   birthyear not between 1981 and 1996;
 ```
+
+## like
+
+There are two wildcard characters that can be used with like and not like operators: percent (%) or underscore (\_).
+
+```
+
+```
