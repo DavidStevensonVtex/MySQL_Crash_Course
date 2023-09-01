@@ -1055,3 +1055,12 @@ select *
 from   team_schedule
 where  game_time <= '22:00';
 ```
+
+## is null
+
+```
+-- Is null
+select  *
+from    employee
+where   retirement_date is null;
+```
