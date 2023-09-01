@@ -1091,3 +1091,22 @@ where   wine_type_name in
         from    cheap_wine
         );
 ```
+
+## not in
+
+```
+-- Not in
+select  *
+from    wine_type
+where   wine_type_name not in ('Chardonnay', 'Riesling');
+```
+
+```
+select  *
+from    wine_type
+where   wine_type_name not in 
+        (
+        select  wine_type_name
+        from    cheap_wine
+        );
+```
