@@ -972,3 +972,14 @@ where	salary =
 
 # Chapter 7: Comparing Values
 
+## Equal
+
+```
+use wine;
+
+select  *
+from    country
+where   country_id = 3;
+```
+
+## Not Equal
