@@ -1010,5 +1010,14 @@ where  country_id =
 Not equal is expressed by the <> or != symbols.
 
 ```
+-- Using "not equal" (!=)
+select  *
+from    musical_instrument
+where   instrument != 'banjo';
+```
 
+```
+select *
+from possible_wedding_date
+where wedding_date <> '2024-02-11' ;
 ```
