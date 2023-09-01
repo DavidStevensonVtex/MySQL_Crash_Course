@@ -1194,3 +1194,38 @@ where exists
     where   birthyear between 1981 and 1996
 );
 ```
+
+## Checking Booleans
+
+```
+-- checking a boolean column
+select  *
+from    bachelor
+where   employed_flag is true;
+```
+
+```
+select  *
+from    bachelor
+where   employed_flag is false;
+```
+
+```
+-- Ways to check for true
+select * from bachelor where employed_flag is true;
+select * from bachelor where employed_flag;
+select * from bachelor where employed_flag = true;
+select * from bachelor where employed_flag != false;
+select * from bachelor where employed_flag = 1;
+select * from bachelor where employed_flag != 0;
+```
+
+```
+-- Ways to check for false
+select * from bachelor where employed_flag is false;
+select * from bachelor where not employed_flag;
+select * from bachelor where employed_flag = false;
+select * from bachelor where employed_flag != true;
+select * from bachelor where employed_flag = 0;
+select * from bachelor where employed_flag != 1;
+```
