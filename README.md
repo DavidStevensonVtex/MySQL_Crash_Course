@@ -1039,3 +1039,11 @@ from    job
 where   salary >= 100000
 and     start_date >= '2024-01-20';
 ```
+
+## Less Than
+
+```
+select *
+from   team_schedule
+where  game_time < '22:00';
+```
