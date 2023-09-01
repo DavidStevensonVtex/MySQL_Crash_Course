@@ -1430,3 +1430,14 @@ group by country, state;
 
 ### concat()
 
+```
+select  concat(first_name, ' ', last_name)
+from    phone_book;
+```
+
+The following may work in other database systems, but not in MySQL.
+
+```
+select  first_name +  ' ' + last_name
+from    phone_book;
+```
