@@ -1021,3 +1021,9 @@ select *
 from possible_wedding_date
 where wedding_date <> '2024-02-11' ;
 ```
+
+## Greater Than
+
+```
+
+```
