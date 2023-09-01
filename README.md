@@ -1119,3 +1119,12 @@ select  *
 from    customer
 where   birthyear between 1981 and 1996;
 ```
+
+## not between
+
+```
+-- Not between
+select  *
+from    customer
+where   birthyear not between 1981 and 1996;
+```
