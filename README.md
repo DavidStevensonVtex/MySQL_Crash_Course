@@ -1155,3 +1155,18 @@ select  *
 from    three_letter_term
 where   term like '_at';
 ```
+
+## not like
+
+```
+-- Not like
+select  * 
+from    three_letter_term
+where   term not like '_at';
+```
+
+```
+select  * 
+from    billionaire
+where   last_name not like 'M%';
+```
