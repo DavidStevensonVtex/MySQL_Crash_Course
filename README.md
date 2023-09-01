@@ -1073,3 +1073,9 @@ select *
 from   employee
 where  retirement_date is not null;
 ```
+
+## in
+
+```
+
+```
