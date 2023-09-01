@@ -1025,5 +1025,8 @@ where wedding_date <> '2024-02-11' ;
 ## Greater Than
 
 ```
-
+select  *
+from    job
+where   salary > 100000
+and     start_date > '2024-01-20';
 ```
