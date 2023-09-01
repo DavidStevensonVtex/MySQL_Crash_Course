@@ -1170,3 +1170,27 @@ select  *
 from    billionaire
 where   last_name not like 'M%';
 ```
+
+## exists
+
+```
+-- Exists
+select 'There is at least one millennial in this table'
+where exists
+(
+    select  *
+    from    customer
+    where   birthyear between 1981 and 1996
+);
+```
+
+```
+-- Same query using "select 1" instead of "select *"
+select 'There is at least one millennial in this table'
+where exists
+(
+    select  1
+    from    customer
+    where   birthyear between 1981 and 1996
+);
+```
