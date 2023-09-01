@@ -1379,3 +1379,49 @@ where     population <
   from    continent
 );
 ```
+
+### group by
+
+```
+select customer_name, sum(amount) 
+from   sale
+group by customer_name;
+```
+
+```
+select salesperson_name, sum(amount) 
+from   sale
+group by salesperson_name;
+```
+
+```
+select  sum(amount)
+from    sale;
+```
+
+```
+select salesperson_name, count(*)
+from   sale
+group by salesperson_name;
+```
+
+```
+select   salesperson_name, avg(amount)
+from     sale 
+group by salesperson_name;
+```
+
+```
+select  salesperson_name,
+        avg(amount)
+from    sale 
+group by salesperson_name;
+```
+
+```
+select country,
+       state,
+       count(*)      
+from   theme_park
+group by country, state;
+```
