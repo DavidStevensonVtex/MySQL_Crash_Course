@@ -1289,3 +1289,13 @@ Result: 3
 Result: 2.72
 
 ```help round```
+
+## Calling Functions Within Functions
+
+```select round(pi());```
+
+Result: 3
+
+```select round(pi(), 2);```
+
+Result: 3.14
