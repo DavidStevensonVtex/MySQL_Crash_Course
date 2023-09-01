@@ -1273,3 +1273,19 @@ A function is a set of saved SQL statements that performs some task and returns 
 ```select upper('rofl');```
 
 ```select datediff('2024-12-25', '2024-11-28');```
+
+## Optional Arguments
+
+The round() function, which rounds decimal numbers, accepts one argument that must be provided
+and a second argumetn with is optional. If you call round() with the number you want rounded as 
+the only argument, it will round the number to zero places.
+
+```select round(2.71828);```
+
+Result: 3
+
+```select round(2.71828, 2);```
+
+Result: 2.72
+
+```help round```
