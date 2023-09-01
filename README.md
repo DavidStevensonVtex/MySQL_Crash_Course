@@ -1077,5 +1077,17 @@ where  retirement_date is not null;
 ## in
 
 ```
+select  *
+from    wine_type
+where   wine_type_name in ('Chardonnay', 'Riesling');
+```
 
+```
+select  *
+from    wine_type
+where   wine_type_name in 
+        (
+        select  wine_type_name
+        from    cheap_wine
+        );
 ```
