@@ -1259,3 +1259,12 @@ and     (
 or      bachelors_degree_flag is true
         );
 ```
+
+# Chapter 8: Calling Built-In MySQL Functions
+
+## What is a Function?
+
+A function is a set of saved SQL statements that performs some task and returns a value.
+
+```select pi();```
+
