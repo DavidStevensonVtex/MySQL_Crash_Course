@@ -982,4 +982,27 @@ from    country
 where   country_id = 3;
 ```
 
+```
+select  *
+from    wine_type
+where   wine_type_name = 'Merlot';
+```
+
+```
+select  c.country_name
+from    country c
+    join    region r
+        on    c.country_id = r.country_id;
+```
+
+```
+select *
+from   region
+where  country_id =
+(
+    select country_id
+    from   country
+    where  country_name = 'USA'
+);
+```
 ## Not Equal
