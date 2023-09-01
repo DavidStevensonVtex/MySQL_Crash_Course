@@ -1309,3 +1309,39 @@ select upper(movie_name),
 where  star_rating > 3
     and    year(release_date) <= 2024;
 ```
+
+## Aggregate Functions
+
+### count()
+
+```
+-- The land database and the continent table were created in chapter_2.sql
+use land;
+
+select  count(*) 
+from    continent;
+```
+
+```
+select  count(*)
+from    continent
+where   population > 1000000000;
+```
+
+### max()
+
+```
+select max(population) 
+from   continent;
+
+```
+
+```
+select   * 
+from     train
+where    mile =
+(
+  select max(mile)
+  from   train
+);
+```
