@@ -1859,3 +1859,22 @@ select pow(5,3) ;
 
 Result: 125
 
+### round()
+
+select round(9.87654321, 3);
+
+Result: 9.877
+
+select round(9.87654321);
+
+Result: 10
+
+### truncate()
+
+select truncate(9.87654321, 3);
+
+Result: 9.876
+
+select truncate(9.87654321, 0);
+
+Result: 9
