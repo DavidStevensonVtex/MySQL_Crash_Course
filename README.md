@@ -2003,3 +2003,9 @@ from   customer;
 ```
 
 Result: 3
+
+### database()
+
+select database();
+
+Result: callfunc
