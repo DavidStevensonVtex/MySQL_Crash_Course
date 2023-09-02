@@ -1552,3 +1552,182 @@ Result: 'asteroid   '
 select rtrim('   asteroid   ');
 
 Result: '   asteroid'
+
+## Date and Time Functions
+
+### curdate()
+
+```select curdate() ;```
+
+Result: 2023-09-02
+
+### curtime()
+
+```select curtime() ;```
+
+Result: 13:24:02
+
+### now()
+
+```select now() ;```
+
+Result: 2023-09-02 13:24:30
+
+### date_add()
+
+```select * from callfunc.event ;```
+
+<pre>
+event_id   eclipse_datetime
+--------   -------------------
+374        2024-10-25 11:01:20
+</pre>
+
+```
+select  eclipse_datetime,
+        date_add(eclipse_datetime, interval 5 day)  as add_5_days,
+        date_add(eclipse_datetime, interval 4 hour) as add_4_hours,
+        date_add(eclipse_datetime, interval 2 week) as add_2_weeks
+from    event
+where   event_id = 374;
+```
+
+The units of time are singular. Commonly used intervals include second, minute, hour, day, week, month, and year.
+
+<pre>
+eclipse_datetime      add_5_days             add_4_hours           add_2_weeks
+-------------------   -------------------   -------------------    -------------------
+2024-10-25 11:01:20   2024-10-30 11:01:20   2024-10-25 15:01:20    2024-11-08 11:01:20
+</pre>
+
+### date_sub()
+
+The date_sub() function subtracts a time interval from a date value.
+
+```
+select  eclipse_datetime,
+        date_sub(eclipse_datetime, interval 5 day)  as sub_5_days,
+        date_sub(eclipse_datetime, interval 4 hour) as sub_4_hours,
+        date_sub(eclipse_datetime, interval 2 week) as sub_2_weeks
+from    event
+where   event_id = 374;
+```
+
+<pre>
+eclipse_datetime      sub_5_days            sub_4_hours           sub_2_weeks
+-------------------   -------------------   -------------------   -------------------
+2024-10-25 11:01:20   2024-10-20 11:01:20   2024-10-25 07:01:20   2024-10-11 11:01:20
+</pre>
+
+### extract ()
+
+```
+select  eclipse_datetime,
+        extract(year from eclipse_datetime)   as year,
+        extract(month from eclipse_datetime)  as month,
+        extract(day from eclipse_datetime)    as day,
+        extract(week from eclipse_datetime)   as week,
+        extract(second from eclipse_datetime) as second
+from    event
+where   event_id = 374;
+```
+
+<pre>
+eclipse_datetime      year   month  day   week   second
+-------------------   ----   -----  ---   ----   ------
+2024-10-25 11:01:20   2024   10     25    42     20
+</pre>
+
+### year(), month(), day(), week(), second()
+
+```
+select  eclipse_datetime,
+        year(eclipse_datetime)   as year,
+        month(eclipse_datetime)  as month,
+        day(eclipse_datetime)    as day,
+        week(eclipse_datetime)   as week,
+        second(eclipse_datetime) as second
+from    event
+where   event_id = 374;
+```
+
+<pre>
+eclipse_datetime     year   month    day    week   second
+-------------------  ----   -----    ---    ----   ------
+2024-10-25 11:01:20  2024   10       25     42     20
+</pre>
+
+### date() and time()
+
+```
+select  eclipse_datetime,
+        date(eclipse_datetime)   as date,
+        time(eclipse_datetime)   as time
+from    event
+where   event_id = 374;
+```
+
+<pre>
+eclipse_datetime      date         time
+-------------------   ----------   --------
+2024-10-25 11:01:20   2024-10-25   11:01:20
+</pre>
+
+### datediff()
+
+Returns the difference in the number of days.
+
+```
+select datediff('2024-05-05', '2024-01-01');
+```
+
+Result: 125
+
+### date_format()
+
+```
+select  date_format('2024-02-02 01:02:03', '%r') as format1,
+        date_format('2024-02-02 01:02:03', '%m') as format2,
+        date_format('2024-02-02 01:02:03', '%M') as format3,
+        date_format('2024-02-02 01:02:03', '%Y') as format4,
+        date_format('2024-02-02 01:02:03', '%y') as format5,
+        date_format('2024-02-02 01:02:03', '%W, %M %D at %T') as format6;
+```
+
+<pre>
+format1      format2   format3   format4   format5    format6
+-----------  -------   --------  -------   -------    ---------------------------------
+01:02:03 AM  02        February  2024      24          Friday, February 2nd at 01:02:03
+</pre>
+
+[DATE_FORMAT(date,format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
+
+### str_to_date()
+
+[STR_TO_DATE(str,format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_str-to-date)
+
+### time_format()
+
+#### [TIME_FORMAT(time,format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-format)
+
+This is used like the DATE_FORMAT() function, but the format string may contain format specifiers only for hours, minutes, seconds, and microseconds. Other specifiers produce a NULL or 0. TIME_FORMAT() returns NULL if time or format is NULL.
+
+```
+select  time_format(curtime(), '%H:%i:%s')                            as format1,
+        time_format(curtime(), '%h:%i %p')                            as format2,
+        time_format(curtime(), '%l:%i %p')                            as format3,
+        time_format(curtime(), '%H hours, %i minutes and %s seconds') as format4,
+        time_format(curtime(), '%r')                                  as format5,
+        time_format(curtime(), '%T')       
+```
+
+<pre>
+format1   format2   format3   format4                              format5       time_format(curtime(), '%T')
+--------  --------  -------   -----------------------------------  -----------   ----------------------------
+13:52:07  01:52 PM  1:52 PM   13 hours, 52 minutes and 07 seconds  01:52:07 PM   13:52:07
+</pre>
+
+## Mathematical Operators and Functions
+
+### Mathematical Operators
+
