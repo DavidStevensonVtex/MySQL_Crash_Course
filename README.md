@@ -1917,3 +1917,37 @@ The tan() function accepts an argument in radians and turns the tangent.
 select tan(0.25 * pi()); 
 
 Result: 0.9999999999999999
+
+## Other Handy Functions
+
+### cast()
+
+```
+select  order_datetime, cast(order_datetime as date) as order_date
+from    online_order;
+```
+
+<pre>
+order_datetime        order_date
+-------------------   ----------
+2024-12-08 11:39:09   2024-12-08
+2024-12-10 10:11:14   2024-12-10
+</pre>
+
+### coalesce()
+
+```select coalesce(null, null, 42, 12);```
+
+Result: 42
+
+```
+select employee_name, coalesce(employer, 'Between Jobs')
+from candidate ;
+```
+
+<pre>
+employee_name   coalesce(employer, 'Between Jobs')
+Jim Miller      Acme Corp
+Laura Garcia    Globex
+Jacob Davis     Between Jobs
+</pre>
