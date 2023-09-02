@@ -1814,3 +1814,16 @@ Result: 3
 select pi() ;
 
 Result: 3.141593
+
+### degrees()
+
+select degrees(pi());
+
+Result: 180
+
+### radians()
+
+select radians(180) ;
+
+Result: 3.141592653589793
+
