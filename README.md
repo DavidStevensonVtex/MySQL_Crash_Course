@@ -2045,3 +2045,9 @@ Lisa                Good job
 Bart                Better luck next time
 Nelson              Please retake this exam
 </pre>
+
+### version()
+
+```select version();```
+
+Result: 8.0.34
