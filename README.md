@@ -1827,3 +1827,19 @@ select radians(180) ;
 
 Result: 3.141592653589793
 
+### exp()
+
+The exp() function returns the natural logarithm base number e raised to the power of the number you provide as an argument.
+
+select exp(2); 
+
+Result: 7.38905609893065
+
+### log()
+
+The log() function returns the natural logarithm of the number you provide as an argument.
+
+select log(2) ;
+
+Result: 0.6931471805599453
+
