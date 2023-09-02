@@ -1803,3 +1803,14 @@ from    jelly_bean;
 
 Result: 4
 
+### floor()
+
+select floor(3.29);
+
+Result: 3
+
+### pi()
+
+select pi() ;
+
+Result: 3.141593
