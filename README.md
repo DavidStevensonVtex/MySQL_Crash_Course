@@ -1843,3 +1843,19 @@ select log(2) ;
 
 Result: 0.6931471805599453
 
+### mod()
+
+The mod() function is the modulo function.
+
+select mod(11,3);
+
+Result: 2
+
+### pow()
+
+The pow() function returns a number raised to a power.
+
+select pow(5,3) ;
+
+Result: 125
+
