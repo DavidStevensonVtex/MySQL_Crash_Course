@@ -1731,3 +1731,36 @@ format1   format2   format3   format4                              format5      
 
 ### Mathematical Operators
 
+```
+select  employee,
+        salary - deduction,
+        salary + bonus,
+        salary * tax_rate,
+        salary / 12,
+        salary div 12
+from    payroll;
+```
+
+<pre>
+employee   salary - deduction  salary + bonus   salary * tax_rate   salary / 12   salary div 12
+Max Bain    75000.00            90000.00        19200.0000          6666.666667   6666
+Lola Joy    60000.00            60800.00        10800.0000          5000.000000   5000
+Zoe Ball   108000.00           140000.00        38500.0000          9166.666667   9166
+</pre>
+
+div discards any fractional amount and / does not.
+
+#### Modulo
+
+```
+select  winning_number,
+        winning_number % 2
+from    roulette_winning_number;
+```
+
+<pre>
+winning_number   winning_number % 2
+21               1
+8                0
+13               1
+</pre>
