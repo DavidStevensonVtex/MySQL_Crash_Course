@@ -1763,4 +1763,24 @@ winning_number   winning_number % 2
 21               1
 8                0
 13               1
+
+```
+-- These queries all return the same value: winning_number mod 2
+select winning_number % 2     from roulette_winning_number;
+select winning_number mod 2   from roulette_winning_number;
+select mod(winning_number, 2) from roulette_winning_number;
+```
 </pre>
+
+### Operator Precedence
+
+Use parentheses to tell MySQL to override the natural operator precedence.
+
+```
+select  employee, 
+        salary,
+        bonus,
+        tax_rate,
+        (salary + bonus) * tax_rate as tax_amount
+from    payroll;
+```
