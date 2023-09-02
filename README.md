@@ -1784,3 +1784,22 @@ select  employee,
         (salary + bonus) * tax_rate as tax_amount
 from    payroll;
 ```
+
+## Mathematical Functions
+
+### abs()
+
+```
+select  guesser,
+        guess,
+        300          as actual,
+        300 - guess  as difference
+from    jelly_bean;
+```
+
+### ceiling()
+
+```select ceiling(3.29);```
+
+Result: 4
+
