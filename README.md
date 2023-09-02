@@ -1894,3 +1894,26 @@ select cos(0.25 * pi()) ;
 
 Result: 0.7071067811865476
 
+### sqrt()
+
+select sqrt(16) ;
+
+Result: 4
+
+### stddev_pop()
+
+The stddev_pop() function returns the population standard deviation of the numbers provided.
+
+select  stddev_pop(score)
+from    test_score;
+
+Data: 70, 82, 97
+Result: 11.045361017187261
+
+### tan()
+
+The tan() function accepts an argument in radians and turns the tangent.
+
+select tan(0.25 * pi()); 
+
+Result: 0.9999999999999999
