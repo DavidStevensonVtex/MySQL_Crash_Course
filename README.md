@@ -1951,3 +1951,55 @@ Jim Miller      Acme Corp
 Laura Garcia    Globex
 Jacob Davis     Between Jobs
 </pre>
+
+### distinct()
+
+```
+select country
+from   customer;
+```
+<pre>
+country
+-------
+India
+USA
+USA
+USA
+India
+Peru
+</pre>
+
+```
+select distinct(country)
+from   customer;
+```
+
+<pre>
+country
+-------
+India
+USA
+Peru
+</pre>
+
+```
+-- This syntax returns the same result
+select distinct country
+from   customer;
+```
+
+<pre>
+country
+-------
+India
+USA
+Peru
+
+</pre>
+
+```
+select count(distinct country)
+from   customer;
+```
+
+Result: 3
