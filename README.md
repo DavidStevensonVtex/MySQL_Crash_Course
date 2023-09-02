@@ -2009,3 +2009,39 @@ Result: 3
 select database();
 
 Result: callfunc
+
+### if()
+
+The if() function returns a different value depending upon whether a condition is true or false.
+
+```
+select  student_name,
+        if(grade > 59, 'pass', 'fail')
+from    test_result;
+```
+
+<pre>
+student_name    if(grade > 59, 'pass', 'fail')
+------------    ------------------------------
+Lisa            pass
+Bart            fail
+Nelson          fail
+</pre>
+
+```
+select  student_name,
+case
+  when grade < 30 then 'Please retake this exam'
+  when grade < 60 then 'Better luck next time'
+  else 'Good job'
+end as advice
+from test_result;
+```
+
+<pre>
+student_name        advice
+------------        ----------------------
+Lisa                Good job
+Bart                Better luck next time
+Nelson              Please retake this exam
+</pre>
