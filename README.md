@@ -1878,3 +1878,19 @@ Result: 9.876
 select truncate(9.87654321, 0);
 
 Result: 9
+
+
+### sin()
+
+The sin() function returns the sine of a number given in radians.
+
+select sin(0.5 * pi()) ;
+
+Result: 1
+
+### cos()
+
+select cos(0.25 * pi()) ;
+
+Result: 0.7071067811865476
+
