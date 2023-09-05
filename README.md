@@ -2267,3 +2267,19 @@ create table arena_20241125  as
     select * from arena;
 ```
 
+## Updating Data
+
+```
+-- Here are three ways we could change Staples Center to Crypto.com Arena:
+update  arena
+set     arena_name = 'Crypto.com Arena'
+where   arena_id = 6;
+
+update  arena
+set     arena_name = 'Crypto.com Arena'
+where   arena_name = 'Staples Center';
+
+update  arena
+set     arena_name = 'Crypto.com Arena'
+where   location = 'Los Angeles';
+```
