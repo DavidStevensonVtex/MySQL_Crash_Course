@@ -2337,3 +2337,13 @@ This statement removes all rows from the table.
 ```
 delete from arena ;
 ```
+
+## Truncating and Ropping a Table
+
+```
+truncate table arena ;
+```
+
+```
+drop table arena ;
+```
