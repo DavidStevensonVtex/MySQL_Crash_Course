@@ -2369,3 +2369,31 @@ create view v_course_advanced as
 
 select * from v_course_advanced;
 ```
+
+## Using Views to Hide Column Values
+
+```
+create view v_complaint as
+select   a.company_name,
+         a.owner,
+         a.owner_phone_number,
+         count(*)
+from     company a
+join     complaint b
+on       a.company_id = b.company_id
+group by a.company_name,
+		 a.owner,
+         a.owner_phone_number;
+```
+
+```
+create view v_complaint_public as
+select   a.company_name,
+         count(*)
+from     company a
+join     complaint b
+on       a.company_id = b.company_id
+group by a.company_name;
+
+select * from v_complaint_public;
+```
