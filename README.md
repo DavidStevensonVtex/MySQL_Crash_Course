@@ -2299,3 +2299,13 @@ SET SQL_SAFE_UPDATES=0;
 update  arena
 set     seating_capacity = 15000;
 ```
+
+## Updating Multiple Columns
+
+```
+-- Set the seating_capacity of arena 6 to 19,100
+update  arena
+set     arena_name = 'Crypto.com Arena',
+        seating_capacity = 19100
+where   arena_id = 6;
+```
