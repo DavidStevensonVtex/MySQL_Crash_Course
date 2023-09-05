@@ -2150,3 +2150,15 @@ values (3, 'Philippine Arena', 'Bocaue', 55000),
        (4, 'Sportpaleis', 'Antwerp', 23359),
        (5, 'Bell Centre', 'Montreal', 22114);
 ```
+
+### Inserting Without Listing Column Names
+
+```
+-- Inserting a row without listing column names  :-(
+insert into arena 
+values (6, 'Staples Center', 'Los Angeles', 19060);
+
+select * from arena;
+```
+
+Although omitting column names saves you some typing, it's best practice to list them.
