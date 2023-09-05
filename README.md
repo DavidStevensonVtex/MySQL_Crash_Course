@@ -2347,3 +2347,6 @@ truncate table arena ;
 ```
 drop table arena ;
 ```
+
+# Chapter 10: Creating Views
+
