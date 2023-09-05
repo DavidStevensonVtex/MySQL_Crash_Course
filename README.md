@@ -2283,3 +2283,19 @@ update  arena
 set     arena_name = 'Crypto.com Arena'
 where   location = 'Los Angeles';
 ```
+
+## Updating Multiple Rows
+
+```
+-- Set the seating_capacity for arenas with an ID of more than 3 to 20,000
+update  arena
+set     seating_capacity = 20000
+where   arena_id > 3;
+```
+
+```
+SET SQL_SAFE_UPDATES=0;
+-- Set the seating_capacity for all arenas to 15,000
+update  arena
+set     seating_capacity = 15000;
+```
