@@ -2053,3 +2053,28 @@ Nelson              Please retake this exam
 Result: 8.0.34
 
 # Chapter 9: Inserting, Updating and Deleting Data
+
+## Inserting Data
+
+```
+insert into arena
+    (
+    arena_id,
+    arena_name, 
+    location, 
+    seating_capacity
+    )
+values 
+    (
+    1,
+    'Madison Square Garden',
+    'New York',
+    20000
+    );
+
+select * from arena;
+```
+
+<pre>arena_id  arena_name             location  seating_capacity
+--------  ---------------------  --------  ----------------
+1         Madison Square Garden  New York  20000</pre>
