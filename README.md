@@ -2123,3 +2123,30 @@ select  *
 from    arena
 where   arena_id = 2;
 ```
+
+## Inserting Multiple Rows at Once
+
+You can either insert one row at a time or insert them as a group.
+
+```
+insert into arena (arena_id, arena_name, location, seating_capacity)
+values (3, 'Philippine Arena', 'Bocaue', 55000);
+
+insert into arena (arena_id, arena_name, location, seating_capacity) 
+values (4, 'Sportpaleis', 'Antwerp', 23359);
+
+insert into arena (arena_id, arena_name, location, seating_capacity) 
+values (5, 'Bell Centre', 'Montreal', 22114);
+```
+
+```
+-- We could achieve the same results by combining them all in one insert statement:
+
+-- First, let's remove the rows we just inserted and inserted them in a different way
+delete from arena where arena_id in (3, 4, 5);
+
+insert into arena (arena_id, arena_name, location, seating_capacity)
+values (3, 'Philippine Arena', 'Bocaue', 55000),
+       (4, 'Sportpaleis', 'Antwerp', 23359),
+       (5, 'Bell Centre', 'Montreal', 22114);
+```
