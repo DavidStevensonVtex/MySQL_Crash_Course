@@ -2418,3 +2418,17 @@ where   owner = 'Sam Shady';
 ## Dropping a View
 
 ```drop view v_course_advanced;```
+
+## Indexes and Views
+
+You can't add indexes to views to speed up your queries, but MySQL can use
+any indexes on the underlying tables.
+
+```
+select *
+from v_complaint
+where company_name like 'CattyWampus%' ;
+```
+
+The above query can take advantage of an index on the company_name column of the company table,
+since the v_complaint view is built on the company table.
