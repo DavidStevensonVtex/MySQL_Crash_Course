@@ -2414,3 +2414,7 @@ set     owner_phone_number = '578-982-1277'
 where   owner = 'Sam Shady';
 -- Error Code: 1288. The target table v_complaint of the UPDATE is not updatable
 ```
+
+## Dropping a View
+
+```drop view v_course_advanced;```
