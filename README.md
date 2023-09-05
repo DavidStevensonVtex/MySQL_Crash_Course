@@ -2309,3 +2309,31 @@ set     arena_name = 'Crypto.com Arena',
         seating_capacity = 19100
 where   arena_id = 6;
 ```
+
+## Deleting Data
+
+```
+select * from arena;
+
+delete from arena
+where arena_id = 2;
+
+select * from arena;
+```
+
+```
+-- Delete all arenas that have the text "Arena" somewhere in their name
+
+select * from arena;
+
+delete from arena
+where arena_name like '%Arena%';
+
+select * from arena;
+```
+
+This statement removes all rows from the table.
+
+```
+delete from arena ;
+```
