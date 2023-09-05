@@ -2397,3 +2397,20 @@ group by a.company_name;
 
 select * from v_complaint_public;
 ```
+
+## Inserting, Updating, and Deleting from Views
+
+```
+-- This update will work
+update  v_course_beginner
+set     course_name = 'Introduction to Python 3.1'
+where   course_name = 'Introduction to Python';
+```
+
+```
+-- This update will not work. 
+update  v_complaint
+set     owner_phone_number = '578-982-1277'
+where   owner = 'Sam Shady';
+-- Error Code: 1288. The target table v_complaint of the UPDATE is not updatable
+```
