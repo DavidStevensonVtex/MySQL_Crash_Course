@@ -2051,3 +2051,5 @@ Nelson              Please retake this exam
 ```select version();```
 
 Result: 8.0.34
+
+# Chapter 9: Inserting, Updating and Deleting Data
