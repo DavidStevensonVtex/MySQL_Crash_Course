@@ -2350,3 +2350,22 @@ drop table arena ;
 
 # Chapter 10: Creating Views
 
+## Creating a New View
+
+```
+create view v_course_beginner as 
+    select  *
+    from    course
+    where   course_level = 'beginner';
+
+select * from v_course_beginner;
+```
+
+```
+create view v_course_advanced as 
+    select  *
+    from    course
+    where   course_level = 'advanced';
+
+select * from v_course_advanced;
+```
