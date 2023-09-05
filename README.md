@@ -2239,3 +2239,31 @@ insert into arena (
     where   building_type = 'Arena'
     and     active_flag is true;
 ```
+
+## Using a Query to Create and Populate a New Table
+
+Note: The as keyword is optional.
+
+```
+-- Creating a table based on a query
+create table new_arena as
+    select  building_name,
+            building_location,
+            building_capacity 
+    from    large_building
+    where   building_type = 'Arena'
+    and     active_flag is true;
+
+select * from new_arena;
+
+desc new_arena;
+```
+
+You can also use create table to make a copy of a table.
+
+```
+-- Making a copy of the arena table using today's date _(YYYYMMDD) as a suffix
+create table arena_20241125  as 
+    select * from arena;
+```
+
