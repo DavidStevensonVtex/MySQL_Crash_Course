@@ -2520,3 +2520,14 @@ __Parameters vs. Arguments__
 Arguments are the values passed to functions. Parameters are the variables in the functions that receive
 these values.
 
+## Specifying Characteristics
+
+A _characteristic_ is an attribute or property of a function.
+
+```deterministic reads sql data```
+
+* deterministic vs. not deterministic
+* reads sql data, modifies sql data, contains sql, or no sql
+
+You must specify at least one of these three characteristics for all of your functions:
+deterministic, no sql, or reads sql data.
