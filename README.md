@@ -2688,3 +2688,7 @@ using the declare command with the data type.
 
  There was no need to declare the @user_var variable with a data type, because it was 
  set to an integer value.
+
+ ## Using Logic in Procedures
+
+ ### if Statements
