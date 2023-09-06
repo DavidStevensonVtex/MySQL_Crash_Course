@@ -2437,3 +2437,32 @@ since the v_complaint view is built on the company table.
 
 ## Functions vs. Procedures
 
+The main difference between a function and a procedure is that a function gets
+called from a SQL statement and always returns one value.
+
+A procedure gets called explicitly using a call statement.
+
+Procedures are often used to execute business logic by updating, inserting, and deleting 
+records in tables, and thye can also be used to display a dataset from the database.
+
+```
+-- Call the f_get_state_population() function
+select f_get_state_population('New York');
+```
+
+Result: 19299981
+
+```
+-- Call the f_get_state_population() function from a WHERE clause
+select  *
+from    state_population
+where   population > f_get_state_population('New York');
+```
+
+<pre>
+state       population
+----------  ----------
+Texas       29730311
+California  39613493
+Florida     21944577
+</pre>
