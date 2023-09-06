@@ -2531,3 +2531,15 @@ A _characteristic_ is an attribute or property of a function.
 
 You must specify at least one of these three characteristics for all of your functions:
 deterministic, no sql, or reads sql data.
+
+### deterministic or not deterministic
+
+Choosing _deterministic_ means the function will return the same value given the same arguments
+and the same state of the database. This is usually the case.
+
+The _not deterministic_ characteristic means that the function may not return the same value
+given the same arguments and the same state of the database. Example: a function that returns
+the current date.
+
+The default is _not deterministic_.
+
