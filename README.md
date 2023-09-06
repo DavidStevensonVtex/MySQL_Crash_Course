@@ -2613,7 +2613,7 @@ delimiter ;
 call p_set_state_population('New York');
 ```
 
-## Using select to Display Values
+### Using select to Display Values
 
 You can use select...into syntax to write a value from the database into a variable.
 
@@ -2667,3 +2667,24 @@ call p_set_and_show_state_population('New York');
 ```
 
 Result: Setting the population for New York of 20201249
+
+### Defining Local Variables and User Variables
+
+_Local variables_ are variables that you define in your procedures and functions
+using the declare command with the data type.
+
+ ```declare population_var int;```
+
+ You can also use a _user variable_, which starts with the at sign (@) and can be 
+ used for the entire length of your session. As long as you're connected to your
+ MySQL server, the user variable will be in scope. If you creat a user variable
+ from MySQL Workbench, for example, it will be available until you close the tool.
+
+ ```
+ declare local_var int ;
+ set local_var = 2 ;
+ set @user_var = local_var + 3 ;
+ ```
+
+ There was no need to declare the @user_var variable with a data type, because it was 
+ set to an integer value.
