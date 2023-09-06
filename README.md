@@ -2432,3 +2432,6 @@ where company_name like 'CattyWampus%' ;
 
 The above query can take advantage of an index on the company_name column of the company table,
 since the v_complaint view is built on the company table.
+
+# Chapter 11: Creating Functions and Procedures
+
