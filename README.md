@@ -2567,3 +2567,43 @@ Consider ending your variable names with \_var to make their role clear.
 
 The _into_ keyword may be used in a select statement to put a database value into a variable.
 
+## Creating Procedures
+
+Procedures accept parameters, include a code block surrounded by _begin_ and _end_, can have defined
+variables, and can have a redefined delimiter.
+
+Procedures don't use the _returns_ or _return_ keyword, because procedures don't return one value in the
+way functions do.
+
+You can display values in procedures using the _select_ keyword.
+
+```
+-- Create the p_set_state_population() procedure
+use population;
+
+drop procedure if exists p_set_state_population;
+
+delimiter //
+
+create procedure p_set_state_population(
+    in state_param varchar(100)
+)
+begin
+    delete from state_population
+    where state = state_param;
+   
+    insert into state_population
+    (
+           state,
+           population
+    )
+    select state,
+           sum(population)
+    from   county_population
+    where  state = state_param
+    group by state;
+    
+end//
+
+delimiter ;
+```
