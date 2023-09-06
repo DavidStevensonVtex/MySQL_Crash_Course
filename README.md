@@ -2557,3 +2557,13 @@ The _no sql_ characteristic means that the function contains no SQL statements.
 
 MySQL defaults to _contains sql_ if nothing is specified.
 
+## Defining the Function Body
+
+_begin_ and _end_ statements are used to mark the beginning and end of the function body.
+
+Variables are named objects that can hold values.
+
+Consider ending your variable names with \_var to make their role clear.
+
+The _into_ keyword may be used in a select statement to put a database value into a variable.
+
