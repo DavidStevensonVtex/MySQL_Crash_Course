@@ -2506,3 +2506,17 @@ that the statements creating your function aren't over until it hits // at the e
 
 Note: _The typical characters developers use to redefine the delimiter are //, $$, and ocassionally;;.
 
+## Adding Parameters and Returning a Value
+
+Both built-in functions and custom functions can accept parameters.
+
+You can define parameters using the data types found on the 
+[MySQL Data Types web page](https://dev.mysql.com/doc/refman/8.0/en/data-types.html).
+
+Because functions return a value to the caller of the function, you use the _returns_ keyword to return a value.
+
+__Parameters vs. Arguments__
+
+Arguments are the values passed to functions. Parameters are the variables in the functions that receive
+these values.
+
