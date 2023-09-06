@@ -2435,3 +2435,5 @@ since the v_complaint view is built on the company table.
 
 # Chapter 11: Creating Functions and Procedures
 
+## Functions vs. Procedures
+
