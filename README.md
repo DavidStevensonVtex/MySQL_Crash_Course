@@ -2495,3 +2495,14 @@ end//
 
 delimiter ;
 ```
+
+## Redefining the Delimiter
+
+A _delimiter_ is one or more characters that separate one SQL statement from another
+and makr the end of each statement. Typically, you'll use a semicolon as a delimter.
+
+Redefining the delimiter to // (or something other than ;) informs MySQL Workbench
+that the statements creating your function aren't over until it hits // at the end.
+
+Note: _The typical characters developers use to redefine the delimiter are //, $$, and ocassionally;;.
+
