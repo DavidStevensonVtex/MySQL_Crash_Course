@@ -2543,3 +2543,17 @@ the current date.
 
 The default is _not deterministic_.
 
+### reads sql data, modifies sql data, contains sql, or no sql
+
+The _reads sql data_ characteristic means that the function reads from the database using select
+statements but doesn't update, delete, or insert any data.
+
+The _modifies sql data_ means that the function does update, delete, or insert data.
+
+The _contains sql_ characteristic means that the function has at least one SQL statement, but doesn't
+read or write any data from the database.
+
+The _no sql_ characteristic means that the function contains no SQL statements.
+
+MySQL defaults to _contains sql_ if nothing is specified.
+
