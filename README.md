@@ -3127,3 +3127,30 @@ end//
 
 delimiter ;
 ```
+
+
+__Test Trigger With Insert Statement__
+
+```
+-- Insert a row into the payable table to test the insert trigger
+insert into payable
+	(
+	  payable_id,
+      company,
+      amount,
+      service
+    )
+values
+	(
+	  4,
+	  'Sirius Painting',
+      451.45,
+      'Painting the lobby'
+    );
+```
+
+__payable_audit table__
+<pre>
+audit_datetime       audit_user       audit_change
+2023-09-07 09:30:35  root@localhost   New row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
+</pre>
