@@ -3423,3 +3423,12 @@ __Test the Before Delete Trigger__
 delete from credit where customer_id = 1;
 delete from credit where customer_id = 2;
 ```
+For customer_id = 1: Response: Error Code: 1644. Cannot delete scores over 750
+row for customer_id = 2 is deleted
+
+<pre>
+customer_id   customer_name       credit_score
+-----------   -------------       ------------
+1             Milton Megabucks    850
+3             Vinny Middle-Class  850
+</pre>
