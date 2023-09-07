@@ -3287,10 +3287,69 @@ where  payable_id = 3;
 ```
 
 <pre>
-audit_datetime      audit_user	    audit_change
---------------      ----------      ------------
-2023-09-07 09:30:35	root@localhost	New row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
-2023-09-07 09:40:14	root@localhost	Deleted row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
-2023-09-07 09:46:01	root@localhost	Updated row for payable_id 3. Company changed from Hooli Cleaning to House of Larry. Amount changed from 4398.55 to 100000.00
+audit_datetime        audit_user      audit_change
+--------------        ----------      ------------
+2023-09-07 09:30:35   root@localhost  New row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
+2023-09-07 09:40:14   root@localhost  Deleted row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
+2023-09-07 09:46:01   root@localhost  Updated row for payable_id 3. Company changed from Hooli Cleaning to House of Larry. Amount changed from 4398.55 to 100000.00
+</pre>
 
+### Triggers That Affect Data
+
+```
+create table credit
+	(
+	customer_id		int,
+	customer_name	varchar(100),
+	credit_score	int
+	);
+```
+
+#### Before Insert Triggers
+
+```
+-- Create a before insert trigger	
+drop trigger if exists tr_credit_bi;
+
+delimiter //
+
+create trigger tr_credit_bi
+  before insert on credit
+  for each row
+begin
+  if (new.credit_score < 300) then
+	set new.credit_score = 300;
+  end if;
+  
+  if (new.credit_score > 850) then
+	set new.credit_score = 850;
+  end if;
+ 
+ end//
+
+delimiter ;
+```
+
+__Testing the Before Insert Trigger__
+
+```
+-- Test the trigger by inserting some values into the credit table
+insert into credit
+	(
+	customer_id,
+	customer_name,
+	credit_score
+	)
+values
+	(1,	'Milton Megabucks',	  987),
+	(2,	'Patty Po', 		  145),
+	(3, 'Vinny Middle-Class', 702);
+```
+
+__credit table__
+<pre>
+customer_id    customer_name         credit_score
+1              Milton Megabucks      850
+2              Patty Po              300
+3              Vinny Middle-Class    702
 </pre>
