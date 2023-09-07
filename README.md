@@ -1260,21 +1260,21 @@ or      bachelors_degree_flag is true
         );
 ```
 
-# Chapter 8: Calling Built-In MySQL Functions
+## Chapter 8: Calling Built-In MySQL Functions
 
-## What is a Function?
+### What is a Function?
 
 A function is a set of saved SQL statements that performs some task and returns a value.
 
 ```select pi();```
 
-## Passing Arguments to a Function
+### Passing Arguments to a Function
 
 ```select upper('rofl');```
 
 ```select datediff('2024-12-25', '2024-11-28');```
 
-## Optional Arguments
+### Optional Arguments
 
 The round() function, which rounds decimal numbers, accepts one argument that must be provided
 and a second argumetn with is optional. If you call round() with the number you want rounded as 
@@ -1290,7 +1290,7 @@ Result: 2.72
 
 ```help round```
 
-## Calling Functions Within Functions
+### Calling Functions Within Functions
 
 ```select round(pi());```
 
@@ -1300,7 +1300,7 @@ Result: 3
 
 Result: 3.14
 
-## Calling Functions from Different Parts of Your Query
+### Calling Functions from Different Parts of Your Query
 
 ```
 select upper(movie_name),
@@ -1310,9 +1310,9 @@ where  star_rating > 3
     and    year(release_date) <= 2024;
 ```
 
-## Aggregate Functions
+### Aggregate Functions
 
-### count()
+#### count()
 
 ```
 -- The land database and the continent table were created in chapter_2.sql
@@ -1328,7 +1328,7 @@ from    continent
 where   population > 1000000000;
 ```
 
-### max()
+#### max()
 
 ```
 select max(population) 
@@ -1346,7 +1346,7 @@ where    mile =
 );
 ```
 
-### min()
+#### min()
 
 ```
 -- Switch back to the "land" database
@@ -1356,14 +1356,14 @@ select min(population)
 from   continent;
 ```
 
-### sum()
+#### sum()
 
 ```
 select sum(population) 
 from   continent;
 ```
 
-### avg()
+#### avg()
 
 ```
 select avg(population) 
@@ -1380,7 +1380,7 @@ where     population <
 );
 ```
 
-### group by
+#### group by
 
 ```
 select customer_name, sum(amount) 
@@ -1426,9 +1426,9 @@ from   theme_park
 group by country, state;
 ```
 
-## String Functions
+### String Functions
 
-### concat()
+#### concat()
 
 ```
 select  concat(first_name, ' ', last_name)
@@ -1442,7 +1442,7 @@ select  first_name +  ' ' + last_name
 from    phone_book;
 ```
 
-### format()
+#### format()
 
 ```
 -- Switch back to the "land" database
@@ -1475,28 +1475,28 @@ select format(1234567.89, 5);
 
 1,234,567.89000
 
-### left()
+#### left()
 
 ```
 select  last_name,
         left(last_name, 3)
 from    taxpayer;
 ```
-### right()
+#### right()
 
 ```
 select  right(soc_sec_no, 4)
 from    taxpayer;
 ```
 
-### lower()
+#### lower()
 
 ```
 select  lower(last_name)
 from    taxpayer;
 ```
 
-### upper()
+#### upper()
 
 ```
 select  upper(last_name)
@@ -1509,7 +1509,7 @@ from    taxpayer
 where   upper(last_name) = upper('Mccartney');
 ```
 
-### substring()
+#### substring()
 
 ```
 select substring('gumbo', 1, 3);
@@ -1525,7 +1525,7 @@ select substring('gumbo' from 1 for 3);
 -- gum
 ```
 
-### trim()
+#### trim()
 
 ```
 select trim(leading  '*' from '**instructions**') as column1,
@@ -1541,39 +1541,39 @@ select trim('   asteroid   ');
 ```
 Result: 'asteroid' (quotes used to indicate absence of space characters, but are not included in the string)
 
-### ltrim()
+#### ltrim()
 
 select ltrim('   asteroid   ');
 
 Result: 'asteroid   '
 
-### rtrim()
+#### rtrim()
 
 select rtrim('   asteroid   ');
 
 Result: '   asteroid'
 
-## Date and Time Functions
+### Date and Time Functions
 
-### curdate()
+#### curdate()
 
 ```select curdate() ;```
 
 Result: 2023-09-02
 
-### curtime()
+#### curtime()
 
 ```select curtime() ;```
 
 Result: 13:24:02
 
-### now()
+#### now()
 
 ```select now() ;```
 
 Result: 2023-09-02 13:24:30
 
-### date_add()
+#### date_add()
 
 ```select * from callfunc.event ;```
 
@@ -1600,7 +1600,7 @@ eclipse_datetime      add_5_days             add_4_hours           add_2_weeks
 2024-10-25 11:01:20   2024-10-30 11:01:20   2024-10-25 15:01:20    2024-11-08 11:01:20
 </pre>
 
-### date_sub()
+#### date_sub()
 
 The date_sub() function subtracts a time interval from a date value.
 
@@ -1638,7 +1638,7 @@ eclipse_datetime      year   month  day   week   second
 2024-10-25 11:01:20   2024   10     25    42     20
 </pre>
 
-### year(), month(), day(), week(), second()
+#### year(), month(), day(), week(), second()
 
 ```
 select  eclipse_datetime,
@@ -1657,7 +1657,7 @@ eclipse_datetime     year   month    day    week   second
 2024-10-25 11:01:20  2024   10       25     42     20
 </pre>
 
-### date() and time()
+#### date() and time()
 
 ```
 select  eclipse_datetime,
@@ -1673,7 +1673,7 @@ eclipse_datetime      date         time
 2024-10-25 11:01:20   2024-10-25   11:01:20
 </pre>
 
-### datediff()
+#### datediff()
 
 Returns the difference in the number of days.
 
@@ -1683,7 +1683,7 @@ select datediff('2024-05-05', '2024-01-01');
 
 Result: 125
 
-### date_format()
+#### date_format()
 
 ```
 select  date_format('2024-02-02 01:02:03', '%r') as format1,
@@ -1702,13 +1702,13 @@ format1      format2   format3   format4   format5    format6
 
 [DATE_FORMAT(date,format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_date-format)
 
-### str_to_date()
+#### str_to_date()
 
 [STR_TO_DATE(str,format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_str-to-date)
 
-### time_format()
+#### time_format()
 
-#### [TIME_FORMAT(time,format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-format)
+##### [TIME_FORMAT(time,format)](https://dev.mysql.com/doc/refman/8.0/en/date-and-time-functions.html#function_time-format)
 
 This is used like the DATE_FORMAT() function, but the format string may contain format specifiers only for hours, minutes, seconds, and microseconds. Other specifiers produce a NULL or 0. TIME_FORMAT() returns NULL if time or format is NULL.
 
@@ -1727,9 +1727,9 @@ format1   format2   format3   format4                              format5      
 13:52:07  01:52 PM  1:52 PM   13 hours, 52 minutes and 07 seconds  01:52:07 PM   13:52:07
 </pre>
 
-## Mathematical Operators and Functions
+### Mathematical Operators and Functions
 
-### Mathematical Operators
+#### Mathematical Operators
 
 ```
 select  employee,
@@ -1750,7 +1750,7 @@ Zoe Ball   108000.00           140000.00        38500.0000          9166.666667 
 
 div discards any fractional amount and / does not.
 
-#### Modulo
+##### Modulo
 
 ```
 select  winning_number,
@@ -1772,7 +1772,7 @@ select mod(winning_number, 2) from roulette_winning_number;
 ```
 </pre>
 
-### Operator Precedence
+#### Operator Precedence
 
 Use parentheses to tell MySQL to override the natural operator precedence.
 
@@ -1785,9 +1785,9 @@ select  employee,
 from    payroll;
 ```
 
-## Mathematical Functions
+### Mathematical Functions
 
-### abs()
+#### abs()
 
 ```
 select  guesser,
@@ -1797,37 +1797,37 @@ select  guesser,
 from    jelly_bean;
 ```
 
-### ceiling()
+#### ceiling()
 
 ```select ceiling(3.29);```
 
 Result: 4
 
-### floor()
+#### floor()
 
 select floor(3.29);
 
 Result: 3
 
-### pi()
+#### pi()
 
 select pi() ;
 
 Result: 3.141593
 
-### degrees()
+#### degrees()
 
 select degrees(pi());
 
 Result: 180
 
-### radians()
+#### radians()
 
 select radians(180) ;
 
 Result: 3.141592653589793
 
-### exp()
+#### exp()
 
 The exp() function returns the natural logarithm base number e raised to the power of the number you provide as an argument.
 
@@ -1835,7 +1835,7 @@ select exp(2);
 
 Result: 7.38905609893065
 
-### log()
+#### log()
 
 The log() function returns the natural logarithm of the number you provide as an argument.
 
@@ -1843,7 +1843,7 @@ select log(2) ;
 
 Result: 0.6931471805599453
 
-### mod()
+#### mod()
 
 The mod() function is the modulo function.
 
@@ -1851,7 +1851,7 @@ select mod(11,3);
 
 Result: 2
 
-### pow()
+#### pow()
 
 The pow() function returns a number raised to a power.
 
@@ -1859,7 +1859,7 @@ select pow(5,3) ;
 
 Result: 125
 
-### round()
+#### round()
 
 select round(9.87654321, 3);
 
@@ -1869,7 +1869,7 @@ select round(9.87654321);
 
 Result: 10
 
-### truncate()
+#### truncate()
 
 select truncate(9.87654321, 3);
 
@@ -1880,7 +1880,7 @@ select truncate(9.87654321, 0);
 Result: 9
 
 
-### sin()
+#### sin()
 
 The sin() function returns the sine of a number given in radians.
 
@@ -1888,19 +1888,19 @@ select sin(0.5 * pi()) ;
 
 Result: 1
 
-### cos()
+#### cos()
 
 select cos(0.25 * pi()) ;
 
 Result: 0.7071067811865476
 
-### sqrt()
+#### sqrt()
 
 select sqrt(16) ;
 
 Result: 4
 
-### stddev_pop()
+#### stddev_pop()
 
 The stddev_pop() function returns the population standard deviation of the numbers provided.
 
@@ -1910,7 +1910,7 @@ from    test_score;
 Data: 70, 82, 97
 Result: 11.045361017187261
 
-### tan()
+#### tan()
 
 The tan() function accepts an argument in radians and turns the tangent.
 
@@ -1918,9 +1918,9 @@ select tan(0.25 * pi());
 
 Result: 0.9999999999999999
 
-## Other Handy Functions
+### Other Handy Functions
 
-### cast()
+#### cast()
 
 ```
 select  order_datetime, cast(order_datetime as date) as order_date
@@ -1934,7 +1934,7 @@ order_datetime        order_date
 2024-12-10 10:11:14   2024-12-10
 </pre>
 
-### coalesce()
+#### coalesce()
 
 ```select coalesce(null, null, 42, 12);```
 
@@ -1952,7 +1952,7 @@ Laura Garcia    Globex
 Jacob Davis     Between Jobs
 </pre>
 
-### distinct()
+#### distinct()
 
 ```
 select country
@@ -2004,13 +2004,13 @@ from   customer;
 
 Result: 3
 
-### database()
+#### database()
 
 select database();
 
 Result: callfunc
 
-### if()
+#### if()
 
 The if() function returns a different value depending upon whether a condition is true or false.
 
@@ -2046,15 +2046,15 @@ Bart                Better luck next time
 Nelson              Please retake this exam
 </pre>
 
-### version()
+#### version()
 
 ```select version();```
 
 Result: 8.0.34
 
-# Chapter 9: Inserting, Updating and Deleting Data
+## Chapter 9: Inserting, Updating and Deleting Data
 
-## Inserting Data
+### Inserting Data
 
 ```
 insert into arena
@@ -2079,7 +2079,7 @@ select * from arena;
 --------  ---------------------  --------  ----------------
 1         Madison Square Garden  New York  20000</pre>
 
-## Inserting Null Values
+### Inserting Null Values
 
 ```
 insert into arena
@@ -2124,7 +2124,7 @@ from    arena
 where   arena_id = 2;
 ```
 
-## Inserting Multiple Rows at Once
+### Inserting Multiple Rows at Once
 
 You can either insert one row at a time or insert them as a group.
 
@@ -2151,7 +2151,7 @@ values (3, 'Philippine Arena', 'Bocaue', 55000),
        (5, 'Bell Centre', 'Montreal', 22114);
 ```
 
-## Inserting Without Listing Column Names
+### Inserting Without Listing Column Names
 
 ```
 -- Inserting a row without listing column names  :-(
@@ -2163,7 +2163,7 @@ select * from arena;
 
 Although omitting column names saves you some typing, it's best practice to list them.
 
-## Inserting Sequences of Numbers
+### Inserting Sequences of Numbers
 
 The auto_increment column attribute is useful for a primary key column.
 
@@ -2201,7 +2201,7 @@ select * from arena;
 
 ```
 
-## Inserting Data Using a Query
+### Inserting Data Using a Query
 
 ```
 create table large_building
@@ -2240,7 +2240,7 @@ insert into arena (
     and     active_flag is true;
 ```
 
-## Using a Query to Create and Populate a New Table
+### Using a Query to Create and Populate a New Table
 
 Note: The as keyword is optional.
 
@@ -2267,7 +2267,7 @@ create table arena_20241125  as
     select * from arena;
 ```
 
-## Updating Data
+### Updating Data
 
 ```
 -- Here are three ways we could change Staples Center to Crypto.com Arena:
@@ -2284,7 +2284,7 @@ set     arena_name = 'Crypto.com Arena'
 where   location = 'Los Angeles';
 ```
 
-## Updating Multiple Rows
+### Updating Multiple Rows
 
 ```
 -- Set the seating_capacity for arenas with an ID of more than 3 to 20,000
@@ -2300,7 +2300,7 @@ update  arena
 set     seating_capacity = 15000;
 ```
 
-## Updating Multiple Columns
+### Updating Multiple Columns
 
 ```
 -- Set the seating_capacity of arena 6 to 19,100
@@ -2310,7 +2310,7 @@ set     arena_name = 'Crypto.com Arena',
 where   arena_id = 6;
 ```
 
-## Deleting Data
+### Deleting Data
 
 ```
 select * from arena;
@@ -2338,7 +2338,7 @@ This statement removes all rows from the table.
 delete from arena ;
 ```
 
-## Truncating and Ropping a Table
+### Truncating and Ropping a Table
 
 ```
 truncate table arena ;
@@ -2348,9 +2348,9 @@ truncate table arena ;
 drop table arena ;
 ```
 
-# Chapter 10: Creating Views
+## Chapter 10: Creating Views
 
-## Creating a New View
+### Creating a New View
 
 ```
 create view v_course_beginner as 
@@ -2370,7 +2370,7 @@ create view v_course_advanced as
 select * from v_course_advanced;
 ```
 
-## Using Views to Hide Column Values
+### Using Views to Hide Column Values
 
 ```
 create view v_complaint as
@@ -2398,7 +2398,7 @@ group by a.company_name;
 select * from v_complaint_public;
 ```
 
-## Inserting, Updating, and Deleting from Views
+### Inserting, Updating, and Deleting from Views
 
 ```
 -- This update will work
@@ -2415,11 +2415,11 @@ where   owner = 'Sam Shady';
 -- Error Code: 1288. The target table v_complaint of the UPDATE is not updatable
 ```
 
-## Dropping a View
+### Dropping a View
 
 ```drop view v_course_advanced;```
 
-## Indexes and Views
+### Indexes and Views
 
 You can't add indexes to views to speed up your queries, but MySQL can use
 any indexes on the underlying tables.
@@ -2433,9 +2433,9 @@ where company_name like 'CattyWampus%' ;
 The above query can take advantage of an index on the company_name column of the company table,
 since the v_complaint view is built on the company table.
 
-# Chapter 11: Creating Functions and Procedures
+## Chapter 11: Creating Functions and Procedures
 
-## Functions vs. Procedures
+### Functions vs. Procedures
 
 The main difference between a function and a procedure is that a function gets
 called from a SQL statement and always returns one value.
@@ -2467,7 +2467,7 @@ California  39613493
 Florida     21944577
 </pre>
 
-## Creating Functions
+### Creating Functions
 
 ```
 -- Create the f_get_state_population() function
@@ -2496,7 +2496,7 @@ end//
 delimiter ;
 ```
 
-## Redefining the Delimiter
+### Redefining the Delimiter
 
 A _delimiter_ is one or more characters that separate one SQL statement from another
 and makr the end of each statement. Typically, you'll use a semicolon as a delimter.
@@ -2506,7 +2506,7 @@ that the statements creating your function aren't over until it hits // at the e
 
 Note: _The typical characters developers use to redefine the delimiter are //, $$, and ocassionally;;.
 
-## Adding Parameters and Returning a Value
+### Adding Parameters and Returning a Value
 
 Both built-in functions and custom functions can accept parameters.
 
@@ -2520,7 +2520,7 @@ __Parameters vs. Arguments__
 Arguments are the values passed to functions. Parameters are the variables in the functions that receive
 these values.
 
-## Specifying Characteristics
+### Specifying Characteristics
 
 A _characteristic_ is an attribute or property of a function.
 
@@ -2532,7 +2532,7 @@ A _characteristic_ is an attribute or property of a function.
 You must specify at least one of these three characteristics for all of your functions:
 deterministic, no sql, or reads sql data.
 
-### deterministic or not deterministic
+#### deterministic or not deterministic
 
 Choosing _deterministic_ means the function will return the same value given the same arguments
 and the same state of the database. This is usually the case.
@@ -2543,7 +2543,7 @@ the current date.
 
 The default is _not deterministic_.
 
-### reads sql data, modifies sql data, contains sql, or no sql
+#### reads sql data, modifies sql data, contains sql, or no sql
 
 The _reads sql data_ characteristic means that the function reads from the database using select
 statements but doesn't update, delete, or insert any data.
@@ -2557,7 +2557,7 @@ The _no sql_ characteristic means that the function contains no SQL statements.
 
 MySQL defaults to _contains sql_ if nothing is specified.
 
-## Defining the Function Body
+### Defining the Function Body
 
 _begin_ and _end_ statements are used to mark the beginning and end of the function body.
 
@@ -2567,7 +2567,7 @@ Consider ending your variable names with \_var to make their role clear.
 
 The _into_ keyword may be used in a select statement to put a database value into a variable.
 
-## Creating Procedures
+### Creating Procedures
 
 Procedures accept parameters, include a code block surrounded by _begin_ and _end_, can have defined
 variables, and can have a redefined delimiter.
@@ -2689,9 +2689,9 @@ using the declare command with the data type.
  There was no need to declare the @user_var variable with a data type, because it was 
  set to an integer value.
 
- ## Using Logic in Procedures
+ ### Using Logic in Procedures
 
- ### if Statements
+ #### if Statements
 
  ```
  -- Create the p_compare_population() procedure
@@ -2788,7 +2788,7 @@ call p_population_group('Rhode Island');
 Under 10 Million
  ```
 
-### Loops
+#### Loops
 
 __Simple Loop / Endless Loop__
 
@@ -3085,3 +3085,5 @@ select routine_type,
 from   information_schema.routines
 where  routine_schema='population';
 ```
+
+## Chapter 12: Creating Triggers
