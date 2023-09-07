@@ -3005,3 +3005,37 @@ SET SQL_SAFE_UPDATES = 0;
 -- Call procedure p_split_big_ny_counties()
 call p_split_big_ny_counties();
 ```
+
+### Declaring Output Parameters
+
+```
+-- Create procedure p_return_state_population()
+use population;
+
+drop procedure if exists p_return_state_population;
+
+delimiter //
+
+create procedure p_return_state_population(
+    in  state_param         varchar(100),
+    out current_pop_param   int
+)
+begin 
+    select population
+    into   current_pop_param
+    from   state_population
+    where  state = state_param;
+end//
+
+delimiter ;
+```
+
+```
+-- Call procedure p_return_state_population()
+call p_return_state_population('New York', @pop_ny);
+
+-- What value did the procedure return in the @pop_ny user variable?
+select @pop_ny;
+```
+
+Result: 20201249
