@@ -2788,3 +2788,102 @@ call p_population_group('Rhode Island');
 Under 10 Million
  ```
 
+### Loops
+
+__Simple Loop / Endless Loop__
+
+```
+-- Create the p_endless_loop() procedure. This creates an endless loop.
+drop procedure if exists p_endless_loop;
+
+delimiter //
+create procedure p_endless_loop()
+begin
+loop
+  select 'Looping Again';
+end loop;
+end;
+//
+delimiter ;
+```
+
+```
+-- Call the p_endless_loop() procedure. Warning: This kicks off an endless loop.
+call p_endless_loop();
+```
+
+__Simple Loop with an Exit__
+
+```
+-- Create the procedure p_more_sensible_loop()
+drop procedure if exists p_more_sensible_loop;
+
+delimiter //
+create procedure p_more_sensible_loop()
+begin
+ set @cnt = 0;
+ msl: loop
+  select 'Looping Again';
+    set @cnt = @cnt + 1;
+  if @cnt = 10 then 
+    leave msl;
+  end if;
+end loop msl;
+end;
+//
+delimiter ;
+```
+
+```
+-- Call the procedure p_more_sensible_loop()
+call p_more_sensible_loop();
+```
+
+__Repeat Until Loop__
+
+```
+-- Create the procedure p_repeat_until_loop()
+drop procedure if exists p_repeat_until_loop;
+
+delimiter //
+create procedure p_repeat_until_loop()
+begin
+set @cnt = 0;
+repeat
+  select 'Looping Again';
+  set @cnt = @cnt + 1;
+until @cnt = 10 
+end repeat;
+end;
+//
+delimiter ;
+```
+
+```
+-- Call the procedure p_repeat_until_loop()
+call p_repeat_until_loop();
+```
+
+__While Loop__
+
+```
+-- Create procedure p_while_loop()
+drop procedure if exists p_while_loop;
+
+delimiter //
+create procedure p_while_loop()
+begin
+set @cnt = 0;
+while @cnt < 10 do
+  select 'Looping Again';
+  set @cnt = @cnt + 1;
+end while;
+end;
+//
+delimiter ;
+```
+
+```
+-- Call procedure p_while_loop()
+call p_while_loop();
+```
