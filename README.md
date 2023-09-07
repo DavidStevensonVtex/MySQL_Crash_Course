@@ -3207,5 +3207,90 @@ audit_datetime	    audit_user	    audit_change
 ------------------- --------------  ---------------------------------------------------------------------------------------------------
 2023-09-07 09:30:35	root@localhost	New row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
 2023-09-07 09:40:14	root@localhost	Deleted row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
+</pre>
+
+### After Update Triggers
+
+```
+-- Create an after update trigger
+delimiter //
+
+create trigger tr_payable_au
+  after update on payable
+  for each row
+begin
+  set @change_msg = 
+	concat(
+		'Updated row for payable_id ',
+		old.payable_id
+	);
+
+  if (old.company != new.company) then
+    set @change_msg = 
+	  concat(
+		@change_msg,
+		'. Company changed from ',
+		old.company,
+		' to ',
+		new.company
+	  );
+  end if;
+	
+  if (old.amount != new.amount) then
+    set @change_msg = 
+	  concat(
+		@change_msg,
+		'. Amount changed from ',
+		old.amount,
+		' to ',
+		new.amount
+	  );
+  end if;
+	
+  if (old.service != new.service) then
+    set @change_msg = 
+	  concat(
+		@change_msg,
+		'. Service changed from ',
+		old.service,
+		' to ',
+		new.service
+	  );
+  end if;
+	
+  insert into payable_audit
+	(
+      audit_datetime,
+      audit_user,
+      audit_change
+    )
+  values
+    (
+      now(),
+	  user(),
+	  @change_msg
+  );
+	
+end//
+
+delimiter ;
+```
+
+__Testing Update Trigger__
+
+```
+-- Test the trigger by updating a row
+update payable
+set    amount = 100000,
+       company = 'House of Larry'
+where  payable_id = 3;
+```
+
+<pre>
+audit_datetime      audit_user	    audit_change
+--------------      ----------      ------------
+2023-09-07 09:30:35	root@localhost	New row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
+2023-09-07 09:40:14	root@localhost	Deleted row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
+2023-09-07 09:46:01	root@localhost	Updated row for payable_id 3. Company changed from Hooli Cleaning to House of Larry. Amount changed from 4398.55 to 100000.00
 
 </pre>
