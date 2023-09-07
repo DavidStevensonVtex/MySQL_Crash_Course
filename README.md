@@ -3039,3 +3039,38 @@ select @pop_ny;
 ```
 
 Result: 20201249
+
+### Writing Procedures That Call Other Procedures
+
+Procedures can call other procedures.
+
+```
+-- Create procedure p_population_caller()
+use population;
+
+drop procedure if exists p_population_caller;
+
+delimiter //
+
+create procedure p_population_caller()
+begin
+  call p_return_state_population('New York',@pop_ny); 
+  call p_return_state_population('New Jersey',@pop_nj);
+  
+  set @pop_ny_and_nj = @pop_ny + @pop_nj;
+  
+  select concat(
+     'The population of the NY and NJ area is ',
+     @pop_ny_and_nj);
+  
+end//
+
+delimiter ;
+```
+
+```
+-- Call procedure p_population_caller()
+call p_population_caller();
+```
+
+Result: The population of the NY and NJ area is 29468379
