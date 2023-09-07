@@ -3154,3 +3154,58 @@ __payable_audit table__
 audit_datetime       audit_user       audit_change
 2023-09-07 09:30:35  root@localhost   New row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
 </pre>
+
+### After Delete Triggers
+
+```
+-- Create an after delete trigger
+use accounting;
+
+drop trigger if exists tr_payable_ad;
+
+delimiter //
+
+create trigger tr_payable_ad
+  after delete on payable
+  for each row
+begin
+  insert into payable_audit
+    (
+      audit_datetime,
+      audit_user,
+      audit_change
+    )
+  values
+    (
+      now(),
+      user(),
+      concat(
+        'Deleted row for payable_id ',
+        old.payable_id,
+        '. Company: ',
+        old.company,
+       '. Amount: ',
+       old.amount,
+       '. Service: ',
+       old.service
+    )
+  );
+end//
+
+delimiter ;	
+```
+
+__Testing the Delete Trigger__
+
+```
+-- Delete a row from the payable table to test the delete trigger
+delete from payable where company = 'Sirius Painting';
+```
+
+<pre>
+audit_datetime	    audit_user	    audit_change
+------------------- --------------  ---------------------------------------------------------------------------------------------------
+2023-09-07 09:30:35	root@localhost	New row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
+2023-09-07 09:40:14	root@localhost	Deleted row for payable_id 4. Company: Sirius Painting. Amount: 451.45. Service: Painting the lobby
+
+</pre>
