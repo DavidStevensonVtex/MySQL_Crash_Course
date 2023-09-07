@@ -3353,3 +3353,73 @@ customer_id    customer_name         credit_score
 2              Patty Po              300
 3              Vinny Middle-Class    702
 </pre>
+
+#### Before Update Data
+
+```
+use bank;
+
+delimiter //
+
+create trigger tr_credit_bu
+    before update on credit
+    for each row
+begin
+    if (new.credit_score < 300) then
+        set new.credit_score = 300 ;
+    end if ;
+
+    if (new.credit_score > 850) then
+        set new.credit_score = 850 ;
+    end if;
+
+end//
+
+delimiter ;
+```
+
+__Test Before Update Trigger__
+
+```
+update credit
+set credit_score = 1111
+where customer_id = 3 ;
+```
+
+```select * from credit where customer_id = 3;```
+
+<pre>
+customer_id   customer_name        credit_score
+-----------   -------------        ------------
+3             Vinny Middle-Class   850
+</pre>
+
+#### Before Delete Data
+
+```
+-- Create the before delete trigger	
+use bank;
+
+delimiter //
+
+create trigger tr_credit_bd
+ before delete on credit
+  for each row
+begin
+  if (old.credit_score > 750) then
+     signal sqlstate '45000'
+       set message_text = 'Cannot delete scores over 750';
+  end if;
+
+end//
+
+delimiter ;
+```
+
+__Test the Before Delete Trigger__
+
+```
+-- Test the trigger
+delete from credit where customer_id = 1;
+delete from credit where customer_id = 2;
+```
