@@ -3074,3 +3074,14 @@ call p_population_caller();
 ```
 
 Result: The population of the NY and NJ area is 29468379
+
+
+### Listing the Stored Routines in a Database
+
+```
+-- Show all procedures and functions in the population database
+select routine_type,
+       routine_name
+from   information_schema.routines
+where  routine_schema='population';
+```
