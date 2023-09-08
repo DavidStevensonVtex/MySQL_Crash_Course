@@ -3633,3 +3633,12 @@ A count value of zero is expected for a table which was created by mistake.
 You can move a table from database to another with the alter table / rename command.
 
 ```alter table bank.employee rename distribution.employee ;```
+
+### Using the Wrong Server
+
+In MySQL Workbench, go to __Database -> Manage Connections__. Give the connection name
+something meaningful, like Development or Production that specifies the environment.
+
+Note: To avoid mistakes, consider opening the Production connection only when you're making
+changes and close the window when finished.
+
