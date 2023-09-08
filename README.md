@@ -3574,4 +3574,62 @@ Probably need to grant privileges to root user for performance_schema
 
 ## Chapter 14: Tips and Tricks
 
+### Working in the Wrong Database
 
+It's common to run a SQL statement in the wrong database.
+
+Don't forget the USE statement!
+
+```
+create database distribution;
+
+-- don't forget the USE!
+use distribution;
+
+create table employee
+  (
+    employee_id     int            primary key,
+    employee_name   varchar(100),
+    tee_shirt_size  varchar(3)
+  );
+
+select database();
+```
+One way to avoid creating a table in the wrong database is fully
+qualifying the table name with the database name.
+
+```create table distribution.employee```
+
+You can check which database you are currently working with:
+
+```select database();```
+
+To determine which databases have an employee table, run this query:
+
+```
+select table_schema, create_time
+from information_schema.tables
+where table_name = 'employee' ;
+```
+
+<pre>
+TABLE_SCHEMA     CREATE_TIME
+------------     -----------
+attire           2023-08-31 12:02:17
+compval          2023-09-01 09:52:31
+distribution     2023-09-08 10:39:36
+pay              2023-08-31 12:08:18
+</pre>
+
+As an extra check, see how many rows are in the employee table:
+
+```
+use bank ;
+select count(*) from employee ;
+```
+
+A count value of zero is expected for a table which was created by mistake.
+
+You can move a table from database to another with the alter table / rename command.
+
+```alter table bank.employee rename distribution.employee ;```
