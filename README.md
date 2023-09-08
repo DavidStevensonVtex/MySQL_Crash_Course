@@ -3642,3 +3642,9 @@ something meaningful, like Development or Production that specifies the environm
 Note: To avoid mistakes, consider opening the Production connection only when you're making
 changes and close the window when finished.
 
+### Leaving where Clauses Incomplete
+
+When you insert, update, or delete data in a table, it's crucial that your 
+where clause is complete.
+
+```select * from inventory ;```
