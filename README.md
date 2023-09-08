@@ -3571,3 +3571,7 @@ Result: Error Code: 1044. Access denied for user 'root'@'localhost' to database 
 Probably need to grant privileges to root user for performance_schema
 
 ```alter event e_cleanup_payable_audit enable ;```
+
+## Chapter 14: Tips and Tricks
+
+
