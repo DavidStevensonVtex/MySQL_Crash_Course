@@ -3648,3 +3648,46 @@ When you insert, update, or delete data in a table, it's crucial that your
 where clause is complete.
 
 ```select * from inventory ;```
+
+One Ford Focus on the lot is blue, not green.
+```
+update inventory
+set color = 'blue'
+where mfg = 'Ford' and model = 'Focus' 
+```
+
+There are three rows that were affected, but you meant to change only one.
+
+```
+select *
+from inventory
+where mfg = 'Ford' and model = 'Focus' ;
+```
+
+Your update statement should have been:
+
+```
+update inventory
+set color = 'blue'
+where mfg = 'Ford' and model = 'Focus'  and color = 'green' ;
+```
+This query would have changed only one row.
+
+You could also have used the VIN (Vehicle Identification Number, unique to each car)
+to correctly identify the row.
+
+```
+update inventory
+set color = 'blue'
+where vin = '4XBCX68RFWE532566' ;
+```
+
+A simple sanity check you can perform before you insert, update or delete rows is to select from
+the table using the same where clause.
+
+
+```
+select *
+from inventory
+where mfg = 'Ford' and model = 'Focus' ;
+```
