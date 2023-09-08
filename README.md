@@ -3547,5 +3547,27 @@ end //
 delimiter ;
 ```
 
+### Checking for Errors
 
+To check for errors after your event runs, query a table in the performance_schema database called error_log.
 
+```
+use performance_schema;
+select * from error_Log order by logged desc limit 50 ;
+```
+
+```
+select * 
+from performance_schema.error_Log 
+where data like '%Event Scheduler%'
+order by logged desc 
+limit 50 ;
+```
+
+#### Disabling and enabling an event
+
+```alter event e_cleanup_payable_audit disable ;```
+Result: Error Code: 1044. Access denied for user 'root'@'localhost' to database 'performance_schema'
+Probably need to grant privileges to root user for performance_schema
+
+```alter event e_cleanup_payable_audit enable ;```
