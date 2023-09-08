@@ -3702,3 +3702,29 @@ Simple lightning bolt           Executes selected statements or, if nothing sele
 Cursor lighting bolt            Executes the statement under the keyboard cursor
 Magnifying glass lighting bolt  Executes the EXPLAIN plan for the statement under the cursor
 </pre>
+
+### Transactions
+
+You can lessen the possibility of mistakes by executing statements as part of a transaction.
+
+```
+start transaction ;
+
+select *
+from inventory
+where mfg = 'Ford' and model = 'Focus' ;
+
+update inventory
+set color = 'blue'
+where mfg = 'Ford' and model = 'Focus' ;
+
+select *
+from inventory
+where mfg = 'Ford' and model = 'Focus' ;
+
+rollback ;
+```
+
+Once you have decided the queries work as intended, you can change rollback to commit and re-run the script.
+
+Until you commit or roll back your update statement, MySQL will keep the table locked.
