@@ -571,11 +571,11 @@ Spatial data types include:
 * emultipolygon
 * geometrycollection
 
-# Chapter 5: Joining Database Tables
+## Chapter 5: Joining Database Tables
 
-## Selecting Data from Multiple Tables
+### Selecting Data from Multiple Tables
 
-### Inner Join
+#### Inner Join
 
 ```
 use subway ;
@@ -589,7 +589,7 @@ inner join country
 on     subway_system.country_code = country.country_code;
 ```
 
-### Table Aliasing
+#### Table Aliasing
 
 ```
 -- Inner Join with Table Aliasing
@@ -601,13 +601,13 @@ inner join country c
 on     s.country_code = c.country_code;
 ```
 
-### Types of Joins
+#### Types of Joins
 
-#### Inner Joins
+##### Inner Joins
 
 The word inner is optional because this is the default join.
 
-#### Outer Joins
+##### Outer Joins
 
 ```
 use subway ;
@@ -628,7 +628,7 @@ results.
 
 ```
 
-#### Natural Joins
+##### Natural Joins
 
 A natural join in MySQL automatically joins tables when they have a column with the same name.
 
@@ -641,7 +641,7 @@ from subway_system s
 
 ```
 
-#### Cross Joins
+##### Cross Joins
 
 MySQ''s cross join syntax can be used to get the Cartesian product of two tables. 
 A _Cartesian product_ is a listing of every row in one table matched with every row 
@@ -655,7 +655,7 @@ from main_dish m
     cross join side_dish s ;
 ```
 
-## Self Joins
+### Self Joins
 
 To pair music fans who like the same genre, join the music_preference table to itself.
 
@@ -670,13 +670,13 @@ where a.music_fan != b.music_fan
 order by a.music_fan ;
 ```
 
-## Variations on Join Syntax
+### Variations on Join Syntax
 
-### Parentheses
+#### Parentheses
 
 You can choose to use parentheses when joining on columns or leave them off.
 
-### Old-School Inner Joins
+#### Old-School Inner Joins
 
 ```
 use subway ;
@@ -686,7 +686,7 @@ from subway_system as s, country as c
 where s.country_code = c.country_code ;
 ```
 
-## Column Aliasing
+### Column Aliasing
 
 ```
 use subway ;
@@ -698,7 +698,7 @@ from subway_system as s
 where c.country_code = 'FR' ;
 ```
 
-## Joining Tables in Different Databases
+### Joining Tables in Different Databases
 
 ```
 use subway ;
@@ -719,9 +719,9 @@ from subway.subway_system as s
         on s.country_code = c.country_code ;
 ```
 
-# Chapter 6: Performing Complex Joins with Multiple Tables
+## Chapter 6: Performing Complex Joins with Multiple Tables
 
-## Writing One Query with Two Join Types
+### Writing One Query with Two Join Types
 
 ```
 use police ;
@@ -748,7 +748,7 @@ from crime c
 where s.suspect_name is null ;
 ```
 
-### Joining Many Tables
+#### Joining Many Tables
 
 MySQL allows up to 61 tables in a join.
 
@@ -772,13 +772,13 @@ from country c
             and t.wine_type_name = 'Merlot' ;
 ```
 
-## Associative Tables
+### Associative Tables
 
 The _portfolio_ table represents _many-to-many relationships_ because one winery can produce many wine types, and one wine type can be produced in many wineries.
 
-## Managing the Data in Your Result Set
+### Managing the Data in Your Result Set
 
-### The limit Keyword
+#### The limit Keyword
 
 The _limit_ keyword lets you limit the number of rows displayed in your result set.
 
@@ -797,7 +797,7 @@ order by place
 limit 3 ;
 ```
 
-### The union Keyword
+#### The union Keyword
 
 ```
 select wine_type_name from wine_type
@@ -817,7 +817,7 @@ union all
 select wine_name from best_wine_contest ;
 ```
 
-## Temporary Tables
+### Temporary Tables
 
 MySQL allows you to create temporary tables -- that is, a temporary result set that
 will exist only for your current session and then be automatically dropped.
@@ -869,7 +869,7 @@ from country c
         on v.viticultural_area_id = w.viticultural_area_id ;
 ```
 
-## Common Table Expressions
+### Common Table Expressions
 
 Common Table Expressions (CTEs), a feature introduced in MySQL version 8.0,
 are a temporary result set that you name and can then select from as if it
@@ -901,7 +901,7 @@ from country c
         on v.viticultural_area_id = wp.viticultural_area_id ;
 ```
 
-## Recursive Common Table Expressions
+### Recursive Common Table Expressions
 
 ```
 with recursive borg_scale_cte as
@@ -915,7 +915,7 @@ with recursive borg_scale_cte as
 select * from borg_scale_cte ;
 ```
 
-## Derived Tables
+### Derived Tables
 
 ```
 select  wot.winery_name, t.wine_type_name
@@ -930,7 +930,7 @@ from    portfolio p
         on p.winery_id = wot.winery_id ;
 ```
 
-## Subqueries
+### Subqueries
 
 ```
 select region_name
@@ -943,7 +943,7 @@ where country_id =
     ) ;
 ```
 
-## Subqueries that return more than One Row
+### Subqueries that return more than One Row
 
 ```
 select region_name
@@ -955,7 +955,7 @@ where country_id in
     ) ;
 ```
 
-## Correlated Subqueries
+### Correlated Subqueries
 
 ```
 -- Correlated subquery
@@ -970,9 +970,9 @@ where	salary =
     );
 ```
 
-# Chapter 7: Comparing Values
+## Chapter 7: Comparing Values
 
-## Equal
+### Equal
 
 ```
 use wine;
@@ -1005,7 +1005,7 @@ where  country_id =
     where  country_name = 'USA'
 );
 ```
-## Not Equal
+### Not Equal
 
 Not equal is expressed by the <> or != symbols.
 
@@ -1022,7 +1022,7 @@ from possible_wedding_date
 where wedding_date <> '2024-02-11' ;
 ```
 
-## Greater Than
+### Greater Than
 
 ```
 select  *
@@ -1031,7 +1031,7 @@ where   salary > 100000
 and     start_date > '2024-01-20';
 ```
 
-## Greater Than or Equal To
+### Greater Than or Equal To
 
 ```
 select  *
@@ -1040,7 +1040,7 @@ where   salary >= 100000
 and     start_date >= '2024-01-20';
 ```
 
-## Less Than
+### Less Than
 
 ```
 select *
@@ -1048,7 +1048,7 @@ from   team_schedule
 where  game_time < '22:00';
 ```
 
-## Less Than or Equal To
+### Less Than or Equal To
 
 ```
 select *
@@ -1056,7 +1056,7 @@ from   team_schedule
 where  game_time <= '22:00';
 ```
 
-## is null
+### is null
 
 ```
 -- Is null
@@ -1065,7 +1065,7 @@ from    employee
 where   retirement_date is null;
 ```
 
-## is not null
+### is not null
 
 ```
 -- Is not null
@@ -1074,7 +1074,7 @@ from   employee
 where  retirement_date is not null;
 ```
 
-## in
+### in
 
 ```
 select  *
@@ -1092,7 +1092,7 @@ where   wine_type_name in
         );
 ```
 
-## not in
+### not in
 
 ```
 -- Not in
@@ -1111,7 +1111,7 @@ where   wine_type_name not in
         );
 ```
 
-## between
+### between
 
 ```
 -- Between
@@ -1120,7 +1120,7 @@ from    customer
 where   birthyear between 1981 and 1996;
 ```
 
-## not between
+### not between
 
 ```
 -- Not between
@@ -1129,11 +1129,11 @@ from    customer
 where   birthyear not between 1981 and 1996;
 ```
 
-## like
+### like
 
 There are two wildcard characters that can be used with like and not like operators: percent (%) or underscore (\_).
 
-### The % Character
+#### The % Character
 
 ```
 -- Like
@@ -1148,7 +1148,7 @@ from    billionaire
 where   last_name like '%e%';
 ```
 
-### The \_ Character
+#### The \_ Character
 
 ```
 select  * 
@@ -1156,7 +1156,7 @@ from    three_letter_term
 where   term like '_at';
 ```
 
-## not like
+### not like
 
 ```
 -- Not like
@@ -1171,7 +1171,7 @@ from    billionaire
 where   last_name not like 'M%';
 ```
 
-## exists
+### exists
 
 ```
 -- Exists
@@ -1195,7 +1195,7 @@ where exists
 );
 ```
 
-## Checking Booleans
+### Checking Booleans
 
 ```
 -- checking a boolean column
@@ -1230,7 +1230,7 @@ select * from bachelor where employed_flag = 0;
 select * from bachelor where employed_flag != 1;
 ```
 
-## or conditions
+### or conditions
 
 ```
 -- Using OR
@@ -3432,3 +3432,5 @@ customer_id   customer_name       credit_score
 1             Milton Megabucks    850
 3             Vinny Middle-Class  850
 </pre>
+
+## Chapter 13: Creating Events
