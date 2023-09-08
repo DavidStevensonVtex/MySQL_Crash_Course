@@ -3491,3 +3491,61 @@ bank, e_cleanup_payable_audit, root@localhost, MONTH, 2024-01-01 10:00:00, , ENA
   where audit_datetime < date_sub(now(), interval 1 year);
 end
 </pre>
+
+### Creating Events with an End Date
+
+To create an event that runs at 1/1/2024 once an hour between 9 am and 5 pm:
+```
+on schedule every 1 hour
+starts '2024-01-01 9:00'
+ends   '2024-01-01 17:00'
+```
+
+To schedule an event that runs every 5 minutes for the next hour:
+```
+on schedule every 5 minute
+starts current_timestamp
+ends current_timestamp + interval 1 hour
+```
+
+Create a stored procedure for an event to use.
+
+```
+-- Create p_account_update() to set up for the event e_account_update
+-- The procedure does nothing. It just displays a message so we have a procedure to call.
+use bank;
+
+drop procedure if exists p_account_update;
+
+delimiter //
+
+create procedure p_account_update()
+begin
+  select 'Running p_account_update()';
+end//
+
+delimiter ;
+```
+
+Schedule an event (using the stored procedure just created) when switching to Daylight Savings Time in 2024:
+
+```
+-- Create event e_account_update
+use bank;
+
+drop event if exists e_account_update;
+
+delimiter //
+
+create event e_account_update
+on schedule at '2024-03-10 00:01'
+do 
+begin
+  call p_account_update();
+end //
+
+delimiter ;
+```
+
+
+
