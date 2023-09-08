@@ -3449,3 +3449,45 @@ If the value displayed is OFF, you (or your database administrator) need to
 turn the scheduler on with this command.
 
 ```set global event_scheduler = on;```
+
+### Creating Events with No End Date
+
+
+```
+-- Create event e_cleanup_payable_audit
+use bank;
+
+drop event if exists e_cleanup_payable_audit;
+
+delimiter //
+
+create event e_cleanup_payable_audit
+ on schedule every 1 month
+ starts '2024-01-01 10:00'
+do 
+begin
+  delete from payable_audit
+  where audit_datetime < date_sub(now(), interval 1 year);
+end //
+
+delimiter ;
+```
+
+#### [Show Events](https://dev.mysql.com/doc/refman/8.0/en/show-events.html)
+
+```SHOW EVENTS FROM bank;```
+
+<pre>
+# Db	Name	Definer	Time zone	Type	Execute at	Interval value	Interval field	Starts	Ends	Status	Originator	character_set_client	collation_connection	Database Collation
+bank	e_cleanup_payable_audit	root@localhost	SYSTEM	RECURRING		1	MONTH	2024-01-01 10:00:00		ENABLED	1	utf8mb4	utf8mb4_0900_ai_ci	utf8mb4_0900_ai_ci
+</pre>
+
+```select * from infromation_schema.events;```
+
+<pre>
+# EVENT_SCHEMA, EVENT_NAME, DEFINER, INTERVAL_FIELD, STARTS, ENDS, STATUS, EVENT_DEFINITION
+bank, e_cleanup_payable_audit, root@localhost, MONTH, 2024-01-01 10:00:00, , ENABLED, begin
+  delete from payable_audit
+  where audit_datetime < date_sub(now(), interval 1 year);
+end
+</pre>
