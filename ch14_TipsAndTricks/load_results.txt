@@ -1,0 +1,4 @@
+market_index	market_value
+Dow Jones Industrial Average	34150.66
+Nasdaq	13552.93
+S&P 500	4351.77

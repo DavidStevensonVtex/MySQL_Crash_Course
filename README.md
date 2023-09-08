@@ -3777,4 +3777,40 @@ mysql -h localhost -D investment < max_and_min_indexes.sql > min_and_max.txt
 
 Get-Content max_and_min_indexes.sql | mysql -h localhost -D investment > min_and_max.txt
 
+### Loading Data from a File
 
+
+```
+use investment ;
+
+load data local infile 'D:\drs\MySQL\MySQL_Crash_Course\ch14_TipsAndTricks\market_indexes.txt' into table market_index;
+
+select * from market_index;
+```
+
+Get-Content load_data_from_file.sql | mysql -h localhost -D investment
+
+```ERROR 3948 (42000) at line 3: Loading local data is disabled; this must be enabled on both the client and server sides```
+
+```SHOW GLOBAL VARIABLES LIKE 'local_infile';```
+
+<pre>
+Variable_name   Value
+local_infile    OFF
+</pre>
+
+```
+SET GLOBAL local_infile=1;
+```
+
+```SHOW VARIABLES LIKE "secure_file_priv";```
+
+<pre>
+Variable_name      Value
+secure_file_priv   C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\
+</pre>
+
+[This restriction](https://stackoverflow.com/questions/63361962/error-2068-hy000-load-data-local-infile-file-request-rejected-due-to-restrict) can be removed from MySQL Workbench 8.0 in the following way. Edit the connection, on the Connection tab, go to the 'Advanced' sub-tab, and in the 'Others:' box add the line 'OPT_LOCAL_INFILE=1'.
+
+cd 'D:\drs\MySQL\MySQL_Crash_Course\ch14_TipsAndTricks'
+Get-Content load_data_from_file.sql | mysql --local-infile=1  -h localhost -D investment
