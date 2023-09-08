@@ -3760,4 +3760,21 @@ password = *****
 host = "localhost"
 </pre>
 
-mysql -D investment
+Add some data:
+
+```
+use investment ;
+
+delete from market_index ;
+insert into market_index ( market_index, market_value ) 
+values	( 'S&P 500', 4351.77 ),
+		( 'Dow Jones Industrial Average', 34150.66 ) ;
+
+select * from market_index ;
+```
+
+mysql -h localhost -D investment < max_and_min_indexes.sql > min_and_max.txt
+
+Get-Content max_and_min_indexes.sql | mysql -h localhost -D investment > min_and_max.txt
+
+
