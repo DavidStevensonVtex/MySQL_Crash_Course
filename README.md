@@ -3728,3 +3728,36 @@ rollback ;
 Once you have decided the queries work as intended, you can change rollback to commit and re-run the script.
 
 Until you commit or roll back your update statement, MySQL will keep the table locked.
+
+### Supporting an Existing System
+
+### Using the MySQL Command Line Client
+
+Create file ~/.my.cnf and add following lines in it and replace mysqluser & mysqlpass values.
+
+PowerShell:
+
+$env:path += ";C:\Program Files\MySQL\MySQL Server 8.0\bin"
+mysql --host localhost --database bank --user root --password
+
+mysql --help
+
+You can use mysql_config_editor to securely store your credentials:
+
+mysql_config_editor.exe is found in: C:\Program Files\MySQL\MySQL Server 8.0\bin
+
+mysql_config_editor set --host=localhost --user=root --password
+Enter password: ******
+
+You can use the print --all option to show them:
+
+mysql_config_editor print --all
+
+<pre>
+[client]
+user = "root"
+password = *****
+host = "localhost"
+</pre>
+
+mysql -D investment
