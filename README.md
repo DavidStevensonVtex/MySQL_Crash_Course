@@ -3434,3 +3434,18 @@ customer_id   customer_name       credit_score
 </pre>
 
 ## Chapter 13: Creating Events
+
+### The Event Scheduler
+
+```show variables like 'event_scheduler' ;```
+
+<pre>
+Variable_name    Value
+-------------    -----
+event_scheduler  ON
+</pre>
+
+If the value displayed is OFF, you (or your database administrator) need to 
+turn the scheduler on with this command.
+
+```set global event_scheduler = on;```
