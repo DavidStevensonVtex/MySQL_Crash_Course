@@ -3828,3 +3828,25 @@ fields terminated by ',' optionally enclosed by '"' ;
 ```
 
 Get-Content create_output_file.sql | mysql --local-infile=1  -h localhost -D investment
+
+### MySQL Shell
+
+While MySQL command line (mysql) is a tried-and-true way to run SQL commands that has been used
+for decades, MySQL Shell (mysqlsh) is a newer MySQL command line client tool that can run SQL,
+Python, or JavaScript commands.
+
+```
+mysql -h localhost -D investment -u rick -picu2 < min_and_max.sql > min_and_max.txt
+```
+
+can be translated to:
+
+```
+mysqlsh --sql -h localhost -D investment -u rick -picu2 < min_and_max.sql > min_and_max.txt
+```
+
+Note: If --sql is not specified, the default mode is JavaScript.
+
+MySQL Shell comes with a handy utility called _parallel table import_ (import-table) that
+can load large data files to tables faster than load data.
+
