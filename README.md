@@ -3814,3 +3814,17 @@ secure_file_priv   C:\ProgramData\MySQL\MySQL Server 8.0\Uploads\
 
 cd 'D:\drs\MySQL\MySQL_Crash_Course\ch14_TipsAndTricks'
 Get-Content load_data_from_file.sql | mysql --local-infile=1  -h localhost -D investment
+
+
+### Loading Data to a File
+
+```
+use investment ;
+
+select *
+from market_index
+into outfile 'C:/ProgramData/MySQL/MySQL Server 8.0/Uploads/market_index_output.csv'
+fields terminated by ',' optionally enclosed by '"' ;
+```
+
+Get-Content create_output_file.sql | mysql --local-infile=1  -h localhost -D investment
