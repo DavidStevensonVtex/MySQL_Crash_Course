@@ -3691,3 +3691,14 @@ select *
 from inventory
 where mfg = 'Ford' and model = 'Focus' ;
 ```
+
+### Running Partial SQL Statements
+
+MySQL Workbench has three lighting bolt icons that can be used for executing SQL statements in
+different ways.
+
+<pre>
+Simple lightning bolt           Executes selected statements or, if nothing selected, all statements
+Cursor lighting bolt            Executes the statement under the keyboard cursor
+Magnifying glass lighting bolt  Executes the EXPLAIN plan for the statement under the cursor
+</pre>
