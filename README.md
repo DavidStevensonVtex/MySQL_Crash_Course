@@ -3850,3 +3850,5 @@ Note: If --sql is not specified, the default mode is JavaScript.
 MySQL Shell comes with a handy utility called _parallel table import_ (import-table) that
 can load large data files to tables faster than load data.
 
+## Chapter 15: Calling MySQL From Programming Languages
+
