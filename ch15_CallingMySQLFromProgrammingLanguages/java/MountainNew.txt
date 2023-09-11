@@ -1,0 +1,6 @@
+Mount Everest | Asia | 29029
+Aconcagua | South America | 22841
+Denali | North America | 20310
+Mount Kilimanjaro | Africa | 19341
+Ojos Del Salado | South America | 22615
+Kangchenjunga | Asia | 28169
