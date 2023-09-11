@@ -8,6 +8,6 @@ $env:classpath = ".;C:\Program Files\Java\jdk-20\lib;C:\Program Files\MySQL\Java
 # java MountainList | Out-File MountainNew.txt
 
 javac MountainAsia.java
-java MountainAsia # | Out-File MountainAsia.txt
+java MountainAsia | Out-File MountainAsia.txt
 
 Remove-Item *.class

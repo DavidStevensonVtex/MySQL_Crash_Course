@@ -9,9 +9,9 @@ public class MountainAsia {
         try {
             Class.forName("com.mysql.cj.jdbc.Driver");
             Connection conn = DriverManager.getConnection(url, username, password);
-            String sql = "{call p_get_mountain_by_loc(?)}" ;
+            String sql = "{call p_get_mountain_by_loc('Asia')}" ;
             CallableStatement stmt = conn.prepareCall(sql);
-            stmt.setString(1, "Asia");
+            // stmt.setString(1, "Asia");
             ResultSet rs = stmt.executeQuery(sql);
             while (rs.next()) {
                 System.out.println( 
